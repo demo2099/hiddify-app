@@ -62,15 +62,16 @@ jobs:
 
       - name: Install gomobile
         run: |
-          go install github.com/sagernet/gomobile/cmd/gomobile@v0.1.11
-          go install github.com/sagernet/gomobile/cmd/gobind@v0.1.11
+          go install github.com/sagernet/gomobile/cmd/gomobile@v0.1.12
+          go install github.com/sagernet/gomobile/cmd/gobind@v0.1.12
           gomobile init
 
       - name: Build hiddify-core AAR from source
         working-directory: hiddify-core
         run: |
           go version
-          go build -tags with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -gcflags "all=-N -l" -ldflags "-w -s -checklinkname=0 -buildid=" -trimpath -buildmode=c-shared -o bin/hiddify-core.so ./platform/mobile 2>&1 | tail -100
+          gomobile version || true
+          make android 2>&1
 
       - name: Move AAR to android libs
         run: |
