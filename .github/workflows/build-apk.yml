@@ -30,10 +30,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: 'stable'
-
-      - name: Show Go version
-        run: go version
+          go-version-file: 'hiddify-core/go.mod'
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -43,7 +40,7 @@ jobs:
           cache: true
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-androidZv3
 
       - name: Install Android NDK
         run: sdkmanager 'ndk;28.2.13676358'
