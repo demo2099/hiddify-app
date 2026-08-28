@@ -70,7 +70,7 @@ jobs:
         working-directory: hiddify-core
         run: |
           go version
-          make android 2>&1 | tail -50
+          go build -tags with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -gcflags "all=-N -l" -ldflags "-w -s -checklinkname=0 -buildid=" -trimpath -buildmode=c-shared -o bin/hiddify-core.so ./platform/mobile 2>&1 | tail -100
 
       - name: Move AAR to android libs
         run: |
