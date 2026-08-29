@@ -1,0 +1,9 @@
+name: test-trivial
+on:
+  push:
+    branches: [ech-support]
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello-world
