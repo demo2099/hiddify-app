@@ -123,14 +123,13 @@ jobs:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           {
-            echo "TOKEN_LEN=${#TOKEN}"
             echo "PWD=$(pwd)"
-            echo "--- flutter-apk ---"
-            ls -la build/app/outputs/flutter-apk/ 2>&1 || echo NO_DIR
-            echo "--- find apk ---"
+            echo "=== build/app/outputs ==="
+            ls -laR build/app/outputs/ 2>&1 | head -50 || echo NO_OUTPUTS
+            echo "=== find apk (depth 8) ==="
             find . -name '*.apk' 2>&1 | head
-            echo "--- curl /user ---"
-            curl -s -H "Authorization: Bearer $TOKEN" https://api.github.com/user 2>&1 | head -c 200
+            echo "=== flutter build log tail ==="
+            tail -60 /tmp/flutter_build.log 2>&1 || echo NO_LOG
           } > diag.txt 2>&1
           git config user.email "d@l"; git config user.name "d"
           git add diag.txt
