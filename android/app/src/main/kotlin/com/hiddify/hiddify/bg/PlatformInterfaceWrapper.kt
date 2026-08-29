@@ -9,6 +9,7 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import com.hiddify.hiddify.Application
 import com.hiddify.core.libbox.InterfaceUpdateListener
+import com.hiddify.core.libbox.NeighborUpdateListener
 import com.hiddify.core.libbox.Libbox
 import com.hiddify.core.libbox.NetworkInterfaceIterator
 import com.hiddify.core.libbox.PlatformInterface
@@ -65,7 +66,7 @@ interface PlatformInterfaceWrapper : PlatformInterface {
             if (uid!=Process.INVALID_UID) {
                 val packages = Application.packageManager.getPackagesForUid(uid)
                 owner.userName = packages?.firstOrNull() ?: ""
-                owner.androidPackageName = owner.userName
+                owner.setAndroidPackageNames(StringArray(listOf(owner.userName).iterator()))
             }
             return owner
         } catch (e: Exception) {
@@ -81,6 +82,7 @@ interface PlatformInterfaceWrapper : PlatformInterface {
 
     override fun closeDefaultInterfaceMonitor(listener: InterfaceUpdateListener) {
         DefaultNetworkMonitor.setListener(null)
+    override fun closeNeighborMonitor(listener: NeighborUpdateListener) {}
     }
 
     override fun getInterfaces(): NetworkInterfaceIterator {
