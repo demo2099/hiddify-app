@@ -61,6 +61,12 @@ jobs:
       - name: Set up Android SDK and NDK
         uses: android-actions/setup-android@v3
 
+      - name: Clean up disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
+          rm -rf ~/.gradle/caches
+          df -h
+
       - name: Install NDK and SDK packages
         run: |
           yes | sdkmanager --licenses
@@ -86,11 +92,20 @@ jobs:
       - name: Flutter build APK
         run: |
           flutter pub get
-          flutter build apk --release
+          flutter build apk --release 2>&1 | tee /tmp/flutter_build.log
 
       - name: Upload APK
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: hiddify-app-ech
           path: build/app/outputs/flutter-apk/app-release.apk
           retention-days: 30
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-build-log
+          path: /tmp/flutter_build.log
+          retention-days: 7
