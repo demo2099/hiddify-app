@@ -117,6 +117,26 @@ jobs:
           artifacts: build/app/outputs/flutter-apk/app-release.apk
           body: "Automated rolling build with ECH support (v2rayN format). Commit: ${{ github.sha }}"
 
+      - name: Diagnose
+        if: always()
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "TOKEN_LEN=${#TOKEN}"
+            echo "PWD=$(pwd)"
+            echo "--- flutter-apk ---"
+            ls -la build/app/outputs/flutter-apk/ 2>&1 || echo NO_DIR
+            echo "--- find apk ---"
+            find . -name '*.apk' 2>&1 | head
+            echo "--- curl /user ---"
+            curl -s -H "Authorization: Bearer $TOKEN" https://api.github.com/user 2>&1 | head -c 200
+          } > diag.txt 2>&1
+          git config user.email "d@l"; git config user.name "d"
+          git add diag.txt
+          git commit -m "diag [skip ci]" || true
+          git push origin ech-support || true
+
       - name: Upload build log on failure
         if: failure()
         uses: actions/upload-artifact@v4
