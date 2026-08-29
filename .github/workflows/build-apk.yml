@@ -94,10 +94,12 @@ jobs:
       - name: Generate code and build APK
         run: |
           set -eo pipefail
-          flutter pub get
-          dart run build_runner build --delete-conflicting-outputs
-          dart run slang
-          flutter build apk --release 2>&1 | tee /tmp/flutter_build.log
+          {
+            flutter pub get
+            dart run build_runner build --delete-conflicting-outputs
+            dart run slang
+            flutter build apk --release
+          } 2>&1 | tee /tmp/flutter_build.log
 
       - name: Upload APK
         if: success()
@@ -127,3 +129,12 @@ jobs:
           name: flutter-build-log
           path: /tmp/flutter_build.log
           retention-days: 7
+
+      - name: Diagnose
+        if: always()
+        run: |
+          cp /tmp/flutter_build.log diag.txt 2>/dev/null || echo "no log" > diag.txt
+          git config user.email "d@l"; git config user.name "d"
+          git add diag.txt
+          git commit -m "diag [skip ci]" || true
+          git push origin ech-support || true
