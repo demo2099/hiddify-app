@@ -180,26 +180,26 @@ Try `flutter pub outdated` for more information.
 [INFO] Generating build script...
 [WARNING] Could not load imported package "flag_builder" for definition "circle_flags:assetsToCache".
 [WARNING] Could not load imported package "flag_builder" for definition "circle_flags:combineFlagFile".
-[INFO] Generating build script completed, took 433ms
+[INFO] Generating build script completed, took 376ms
 
 [INFO] Precompiling build script......
-[INFO] Precompiling build script... completed, took 7.0s
+[INFO] Precompiling build script... completed, took 6.8s
 
 [FlutterGen] v5.10.0 Loading ...
 [FlutterGen] Reading options from pubspec.yaml
 [FlutterGen] Specified build.yaml as input but the file does not contain valid options, ignoring...
 [INFO] Initializing inputs
 [INFO] Building new asset graph...
-[INFO] Building new asset graph completed, took 9.9s
+[INFO] Building new asset graph completed, took 10.1s
 
 [INFO] Checking for unexpected pre-existing outputs....
-[INFO] Checking for unexpected pre-existing outputs. completed, took 3ms
+[INFO] Checking for unexpected pre-existing outputs. completed, took 0ms
 
 [INFO] Running build...
 [INFO] Generating SDK summary...
-[INFO] 2.2s elapsed, 0/16 actions completed.
-[INFO] 4.2s elapsed, 0/16 actions completed.
-[WARNING] riverpod_generator on test/drift/db/migration_test.dart:
+[INFO] 2.1s elapsed, 0/16 actions completed.
+[INFO] 4.1s elapsed, 0/16 actions completed.
+[WARNING] riverpod_generator on lib/gen/hiddify_core_generated_bindings.dart:
 Your current `analyzer` version may not fully support your current SDK version.
 
 Analyzer language version: 3.9.0
@@ -215,57 +215,55 @@ diagnosing why you can't get the latest version:
 dev_dependencies:
   analyzer: ^14.1.0
 
-[INFO] 5.3s elapsed, 0/16 actions completed.
-[INFO] Generating SDK summary completed, took 5.3s
+[INFO] 5.2s elapsed, 0/16 actions completed.
+[INFO] Generating SDK summary completed, took 5.2s
 
-[INFO] 6.4s elapsed, 15/67 actions completed.
-[INFO] 7.5s elapsed, 34/129 actions completed.
-[INFO] 8.5s elapsed, 60/143 actions completed.
-[INFO] 9.5s elapsed, 105/165 actions completed.
-[INFO] 10.8s elapsed, 111/167 actions completed.
-[INFO] 11.8s elapsed, 151/190 actions completed.
-[INFO] 16.7s elapsed, 216/250 actions completed.
-[INFO] 24.0s elapsed, 293/319 actions completed.
-[INFO] 25.1s elapsed, 346/362 actions completed.
-[INFO] 34.3s elapsed, 359/375 actions completed.
-[INFO] 35.4s elapsed, 422/432 actions completed.
-[INFO] 36.4s elapsed, 543/557 actions completed.
-[INFO] 37.4s elapsed, 742/755 actions completed.
-[INFO] 38.5s elapsed, 863/883 actions completed.
-[INFO] 39.6s elapsed, 889/904 actions completed.
-[INFO] 40.9s elapsed, 941/957 actions completed.
-[INFO] 42.6s elapsed, 980/998 actions completed.
-[INFO] 43.6s elapsed, 1075/1092 actions completed.
-[INFO] 44.6s elapsed, 1102/1120 actions completed.
-[INFO] 45.7s elapsed, 1160/1176 actions completed.
-[INFO] 46.7s elapsed, 1177/1192 actions completed.
-[INFO] 47.7s elapsed, 1235/1250 actions completed.
-[INFO] 48.8s elapsed, 1508/1520 actions completed.
-[INFO] 49.9s elapsed, 1842/1857 actions completed.
-[INFO] 51.0s elapsed, 1959/1971 actions completed.
+[INFO] 6.3s elapsed, 15/93 actions completed.
+[INFO] 7.4s elapsed, 42/134 actions completed.
+[INFO] 8.5s elapsed, 87/148 actions completed.
+[INFO] 10.3s elapsed, 110/165 actions completed.
+[INFO] 11.3s elapsed, 147/185 actions completed.
+[INFO] 15.9s elapsed, 215/250 actions completed.
+[INFO] 23.0s elapsed, 304/331 actions completed.
+[INFO] 24.1s elapsed, 345/362 actions completed.
+[INFO] 33.2s elapsed, 359/375 actions completed.
+[INFO] 34.2s elapsed, 461/475 actions completed.
+[INFO] 35.3s elapsed, 665/679 actions completed.
+[INFO] 36.4s elapsed, 821/836 actions completed.
+[INFO] 37.4s elapsed, 900/912 actions completed.
+[INFO] 38.5s elapsed, 952/973 actions completed.
+[INFO] 39.9s elapsed, 975/993 actions completed.
+[INFO] 40.9s elapsed, 990/1007 actions completed.
+[INFO] 42.0s elapsed, 1078/1094 actions completed.
+[INFO] 43.1s elapsed, 1113/1129 actions completed.
+[INFO] 44.2s elapsed, 1134/1150 actions completed.
+[INFO] 45.3s elapsed, 1213/1228 actions completed.
+[INFO] 46.4s elapsed, 1406/1422 actions completed.
+[INFO] 47.5s elapsed, 1771/1787 actions completed.
+[INFO] 48.6s elapsed, 1931/1947 actions completed.
 [WARNING] drift_dev on lib/hiddifycore/generated/v2/common/common.pb.dart:
 The language version of this file is Dart 2.12. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
 [WARNING] drift_dev on lib/hiddifycore/generated/v2/common/common.pbenum.dart:
 The language version of this file is Dart 2.12. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
-[INFO] 52.4s elapsed, 2242/2257 actions completed.
-[INFO] 53.5s elapsed, 2430/2431 actions completed.
-[INFO] 54.6s elapsed, 2529/2539 actions completed.
-[INFO] 55.6s elapsed, 2627/2635 actions completed.
-[INFO] 56.7s elapsed, 2720/2732 actions completed.
+[INFO] 50.1s elapsed, 2248/2261 actions completed.
+[INFO] 51.1s elapsed, 2410/2411 actions completed.
+[INFO] 52.2s elapsed, 2503/2510 actions completed.
+[INFO] 53.3s elapsed, 2592/2604 actions completed.
+[INFO] 54.4s elapsed, 2697/2700 actions completed.
 [FlutterGen] Generated: lib/gen/assets.gen.dart
 [FlutterGen] Generated: lib/gen/fonts.gen.dart
 [FlutterGen] Finished generating.
-[INFO] 58.0s elapsed, 2777/2793 actions completed.
-[INFO] 59.1s elapsed, 2957/2971 actions completed.
-[INFO] 1m 0s elapsed, 2990/3006 actions completed.
-[INFO] 1m 1s elapsed, 3057/3072 actions completed.
-[INFO] 1m 2s elapsed, 3213/3213 actions completed.
-[INFO] Running build completed, took 1m 2s
+[INFO] 55.4s elapsed, 2777/2777 actions completed.
+[INFO] 56.4s elapsed, 2894/2908 actions completed.
+[INFO] 57.5s elapsed, 2977/2993 actions completed.
+[INFO] 58.6s elapsed, 3042/3056 actions completed.
+[INFO] 59.7s elapsed, 3146/3162 actions completed.
+[INFO] Running build completed, took 1m 0s
 
 [INFO] Caching finalized dependency graph...
-[INFO] Caching finalized dependency graph completed, took 1.6s
+[INFO] Caching finalized dependency graph completed, took 2.0s
 
-[INFO] Succeeded after 1m 4s with 1059 outputs (11192 actions)
+[INFO] Succeeded after 1m 2s with 1059 outputs (11192 actions)
 
 Generating translations...
 
@@ -335,7 +333,7 @@ Output:
  -> lib/gen/translations_zh_CN.g.dart
  -> lib/gen/translations_zh_TW.g.dart
 
-[32mTranslations generated successfully. (0.307 seconds)[0m
+[32mTranslations generated successfully. (0.297 seconds)[0m
 Resolving dependencies...
 Downloading packages...
   _fe_analyzer_shared 85.0.0 (105.0.0 available)
@@ -542,10 +540,10 @@ Note: /home/runner/.pub-cache/hosted/pub.dev/in_app_review-2.0.10/android/src/ma
 Note: Recompile with -Xlint:deprecation for details.
 Expected to find fonts for (packages/cupertino_icons/CupertinoIcons, MaterialIcons, packages/fluentui_system_icons/FluentSystemIcons-Regular, ..., packages/simple_icons/SimpleIcons, packages/iconsax_flutter/FlutterIconsax), but found (MaterialIcons, packages/iconsax_flutter/FlutterIconsax, packages/simple_icons/SimpleIcons, ..., packages/fluentui_system_icons/FluentSystemIcons-Regular, packages/fluentui_system_icons/FluentSystemIcons-Filled). This usually means you are referring to font families in an IconData class but not including them in the assets section of your pubspec.yaml, are missing the package that would include them, or are missing "uses-material-design: true".
 Font asset "SimpleIcons.ttf" was tree-shaken, reducing it from 1318664 to 3488 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
-Font asset "FlutterIconsax.ttf" was tree-shaken, reducing it from 670228 to 1924 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Font asset "fa-solid-900.ttf" was tree-shaken, reducing it from 423676 to 1196 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
-Font asset "FluentSystemIcons-Filled.ttf" was tree-shaken, reducing it from 2148440 to 868 bytes (100.0% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Font asset "FluentSystemIcons-Regular.ttf" was tree-shaken, reducing it from 2435788 to 5176 bytes (99.8% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "FluentSystemIcons-Filled.ttf" was tree-shaken, reducing it from 2148440 to 868 bytes (100.0% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "FlutterIconsax.ttf" was tree-shaken, reducing it from 670228 to 1924 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 17388 bytes (98.9% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Checking the license for package CMake 3.22.1 in /usr/local/lib/android/sdk/licenses
 License for package CMake 3.22.1 accepted.
@@ -554,10 +552,9 @@ Preparing "Install CMake 3.22.1 v.3.22.1".
 Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
 "Install CMake 3.22.1 v.3.22.1" complete.
 "Install CMake 3.22.1 v.3.22.1" finished.
-e: file:///home/runner/work/hiddify-app/hiddify-app/android/app/src/main/kotlin/com/hiddify/hiddify/bg/PlatformInterfaceWrapper.kt:68:23 Unresolved reference 'androidPackageName'.
+e: file:///home/runner/work/hiddify-app/hiddify-app/android/app/src/main/kotlin/com/hiddify/hiddify/bg/PlatformInterfaceWrapper.kt:85:5 Modifier 'override' is not applicable to 'local function'.
 e: file:///home/runner/work/hiddify-app/hiddify-app/android/app/src/main/kotlin/com/hiddify/hiddify/bg/ProxyService.kt:7:1 Class 'ProxyService' is not abstract and does not implement abstract member 'closeNeighborMonitor'.
 e: file:///home/runner/work/hiddify-app/hiddify-app/android/app/src/main/kotlin/com/hiddify/hiddify/bg/VPNService.kt:20:1 Class 'VPNService' is not abstract and does not implement abstract member 'closeNeighborMonitor'.
-e: file:///home/runner/work/hiddify-app/hiddify-app/android/app/src/main/kotlin/com/hiddify/hiddify/bg/VPNService.kt:115:59 Unresolved reference 'value'.
 
 FAILURE: Build failed with an exception.
 
@@ -572,6 +569,6 @@ Execution failed for task ':app:compileReleaseKotlin'.
 > Run with --scan to get full insights.
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 5m 52s
-Running Gradle task 'assembleRelease'...                          352.9s
+BUILD FAILED in 5m 46s
+Running Gradle task 'assembleRelease'...                          347.3s
 Gradle task assembleRelease failed with exit code 1
