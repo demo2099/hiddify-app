@@ -13,6 +13,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 180
+    permissions:
+      contents: write
     steps:
       - name: Force HTTPS for all git URLs
         run: |
@@ -101,6 +103,28 @@ jobs:
           name: hiddify-app-ech
           path: build/app/outputs/flutter-apk/app-release.apk
           retention-days: 30
+
+      - name: Remove old rolling release
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete ech-latest --repo demo2099/hiddify-app --yes || true
+          git push origin :refs/tags/ech-latest || true
+          sleep 3
+
+      - name: Publish APK to Releases
+        if: success()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ech-latest
+          name: Hiddify with ECH (rolling build)
+          prerelease: true
+          make_latest: true
+          files: build/app/outputs/flutter-apk/app-release.apk
+          body: |
+            Automated rolling build with ECH support (v2rayN format).
+            Commit: ${{ github.sha }}
 
       - name: Upload build log on failure
         if: failure()
