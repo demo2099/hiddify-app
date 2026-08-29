@@ -88,6 +88,8 @@ interface PlatformInterfaceWrapper : PlatformInterface {
 
     override fun registerMyInterface(name: String) {}
 
+    override fun startNeighborMonitor(listener: NeighborUpdateListener) {}
+
     override fun getInterfaces(): NetworkInterfaceIterator {
         val networks = Application.connectivity.allNetworks
         val networkInterfaces = NetworkInterface.getNetworkInterfaces().toList()
