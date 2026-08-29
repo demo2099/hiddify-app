@@ -106,27 +106,16 @@ jobs:
 
       - name: Publish APK to Releases
         if: success()
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: demo2099/hiddify-app
-          TAG: ech-latest
-          APK: build/app/outputs/flutter-apk/app-release.apk
-        run: |
-          API="https://api.github.com/repos/$REPO"
-          REL_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API/releases/tags/$TAG" | jq -r '.id // empty')
-          if [ -n "$REL_ID" ]; then
-            curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/releases/$REL_ID"
-          fi
-          curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/git/refs/tags/$TAG" 2>/dev/null || true
-          sleep 2
-          UPLOAD_URL=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
-            -d "{\"tag_name\":\"$TAG\",\"name\":\"Hiddify with ECH (rolling build)\",\"prerelease\":true,\"body\":\"Automated rolling build with ECH support (v2rayN format). Commit: ${GITHUB_SHA}\"}" \
-            "$API/releases" | jq -r '.upload_url // empty' | sed 's/{?name,label}//')
-          echo "upload_url=$UPLOAD_URL"
-          curl -s -X POST -H "Authorization: Bearer $TOKEN" \
-            -H "Content-Type: application/vnd.android.package-archive" \
-            --data-binary @"$APK" \
-            "$UPLOAD_URL?name=app-release.apk"
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ech-latest
+          name: Hiddify with ECH (rolling build)
+          prerelease: true
+          allowUpdates: true
+          replacesArtifacts: true
+          artifacts: build/app/outputs/flutter-apk/app-release.apk
+          body: "Automated rolling build with ECH support (v2rayN format). Commit: ${{ github.sha }}"
 
       - name: Upload build log on failure
         if: failure()
