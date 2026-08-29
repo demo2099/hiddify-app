@@ -7,8 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Force HTTPS for all git URLs
-        run: git config --global url.https://github.com/.insteadOf git@github.com:
+      - run: echo first-step-before-checkout
       - name: Checkout
         uses: actions/checkout@v4
         with:
