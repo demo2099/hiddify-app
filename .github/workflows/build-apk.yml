@@ -1,104 +1,16 @@
 name: Build APK with ECH Support
-
 on:
   push:
     branches: [ech-support]
   workflow_dispatch:
-
-env:
-  FLUTTER_VERSION: '3.38.5'
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Force HTTPS for all git URLs
-        run: git config --global url."https://github.com/".insteadOf "ssh://git@github.com/" && git config --global url."https://github.com/".insteadOf "git@github.com:"
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: false
           ref: ech-support
-
-      - name: Setup Java 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: 17
-
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: 'stable'
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.38.5'
-          channel: 'stable'
-          cache: true
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-androidZv3
-
-      - name: Install Android NDK
-        run: sdkmanager 'ndk;28.2.13676358'
-
-      - name: Clean disk
-        run: |
-          sudo rm -rf /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
-          rm -rf ~/.gradle/caches
-          sudo apt-get autoremove -y && sudo apt-get clean
-
-      - name: Verify submodules
-        run: |
-          ls hiddify-core/hiddify-sing-box/go.mod || echo "MISSING hiddify-sing-box"
-          ls hiddify-core/ray2sing/ray2sing/common.go || echo "MISSING ray2sing"
-          ls hiddify-core/hiddify-sing-box/replace/wireguard-go/go.mod || echo "MISSING wireguard-go"
-
-      - name: Install gomobile
-        run: |
-          go install github.com/sagernet/gomobile/cmd/gomobile@v0.1.12
-          go install github.com/sagernet/gomobile/cmd/gobind@v0.1.12
-          gomobile init
-
-      - name: Build hiddify-core AAR from source
-        working-directory: hiddify-core
-        run: |
-          go version
-          mkdir -p bin
-          CGO_LDFLAGS="-O2 -g -s -w -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_purego -trimpath -ldflags="-w -s -checklinkname=0 -buildid=" -target=android -gcflags "all=-N -l" -o bin/hiddify-core.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile 2>&1 | tail -80
-
-      - name: Move AAR to android libs
-        run: |
-          mkdir -p android/app/libs
-          cp hiddify-core/bin/hiddify-core.aar android/app/libs/
-
-      - name: Flutter pub get
-        run: flutter pub get
-
-      - name: Run code generation
-        run: |
-          dart run build_runner build --delete-conflicting-outputs
-          dart run slang
-
-      - name: Install fastforge
-        run: dart pub global activate fastforge
-
-      - name: Build APK
-
-        run: |
-          fastforge package \
-            --platform android \
-            --targets apk \
-            --skip-clean \
-            --build-target=lib/main.dart \
-            --build-target-platform=android-arm,android-arm64,android-x64
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: Hiddify-ARK-ECH
-          path: build/app/outputs/flutter-apk/*.apk
-          retention-days: 7
+      - run: echo submodule-check
+      - run: ls hiddify-core && ls hiddify-core/go.mod || echo no-go-mod
