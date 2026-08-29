@@ -18,8 +18,15 @@ jobs:
       - name: Force HTTPS for all git URLs
         run: |
           SSH_PREFIX=$(printf 'Z2l0QGdpdGh1Yi5jb206' | base64 -d)
-          git config --global url.https://github.com/.insteadOf "$SSH_PREFIX"
-          git config --global url.https://github.com/.insteadOf "ssh://${SSH_PREFIX}"
+          git config --global "url.https://github.com/.insteadOf" "$SSH_PREFIX"
+          git config --global "url.https://github.com/.insteadOf" "ssh://${SSH_PREFIX/:/}"
+          {
+            echo "GIT_CONFIG_COUNT=2"
+            echo "GIT_CONFIG_KEY_0=url.https://github.com/.insteadOf"
+            echo "GIT_CONFIG_VALUE_0=$SSH_PREFIX"
+            echo "GIT_CONFIG_KEY_1=url.https://github.com/.insteadOf"
+            echo "GIT_CONFIG_VALUE_1=ssh://${SSH_PREFIX/:/}"
+          } >> "$GITHUB_ENV"
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,8 +36,9 @@ jobs:
 
       - name: Init submodules
         run: |
-          git submodule update --init hiddify-core
-          cd hiddify-core
+          SSH_PREFIX=$(printf 'Z2l0QGdpdGh1Yi5jb206' | base64 -d)
+          git config --global "url.https://github.com/.insteadOf" "$SSH_PREFIX"
+          git config --global "url.https://github.com/.insteadOf" "ssh://${SSH_PREFIX/:/}"
           git submodule update --init --recursive
 
       - name: Set up JDK
@@ -56,7 +64,7 @@ jobs:
       - name: Install NDK
         run: |
           sdkmanager "ndk;${NDK_VERSION}" "cmake;3.22.1"
-          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/${NDK_VERSION}" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
 
       - name: Install gomobile
         run: go install golang.org/x/mobile/cmd/gomobile@v0.1.12
