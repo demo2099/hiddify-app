@@ -1,16 +1,85 @@
 name: Build APK with ECH Support
+
 on:
   push:
     branches: [ech-support]
   workflow_dispatch:
+
+env:
+  FLUTTER_VERSION: '3.38.5'
+  JAVA_VERSION: '17'
+  NDK_VERSION: '27.0.12077973'
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     steps:
-      - run: echo Z2l0QGdpdGh1Yi5jb206
+      - name: Force HTTPS for all git URLs
+        run: |
+          SSH_PREFIX=$(printf 'Z2l0QGdpdGh1Yi5jb206' | base64 -d)
+          git config --global url.https://github.com/.insteadOf "$SSH_PREFIX"
+          git config --global url.https://github.com/.insteadOf "ssh://${SSH_PREFIX}"
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: false
           ref: ech-support
-      - run: echo done
+
+      - name: Init submodules
+        run: |
+          git submodule update --init hiddify-core
+          cd hiddify-core
+          git submodule update --init --recursive
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: 'stable'
+          cache: true
+
+      - name: Set up Android SDK and NDK
+        uses: android-actions/setup-android@v3
+      - name: Install NDK
+        run: |
+          sdkmanager "ndk;${NDK_VERSION}" "cmake;3.22.1"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/${NDK_VERSION}" >> $GITHUB_ENV
+
+      - name: Install gomobile
+        run: go install golang.org/x/mobile/cmd/gomobile@v0.1.12
+
+      - name: Build hiddify-core AAR
+        working-directory: hiddify-core
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          CGO_LDFLAGS="-O2 -g -s -w -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_purego -trimpath -ldflags="-w -s -checklinkname=0 -buildid=" -target=android -gcflags "all=-N -l" -o bin/hiddify-core.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile
+
+      - name: Copy AAR to app libs
+        run: |
+          mkdir -p android/app/libs
+          cp hiddify-core/bin/hiddify-core.aar android/app/libs/
+
+      - name: Flutter build APK
+        run: |
+          flutter pub get
+          flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: hiddify-app-ech
+          path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30
