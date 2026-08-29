@@ -51,7 +51,8 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: 'stable'
+          go-version-file: hiddify-core/go.mod
+          check-latest: false
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2.21.0
@@ -72,19 +73,19 @@ jobs:
       - name: Install NDK and SDK packages
         run: |
           yes | sdkmanager --licenses
-          sdkmanager "ndk;27.0.12077973" "ndk;28.2.13676358" "platforms;android-36" "build-tools;36.0.0" "platform-tools"
+          sdkmanager "ndk;28.2.13676358" "platforms;android-36" "build-tools;36.0.0" "platform-tools"
 
       - name: Install gomobile
         run: |
-          go install github.com/sagernet/gomobile/cmd/gomobile@v0.1.12
-          go install github.com/sagernet/gomobile/cmd/gobind@v0.1.12
+          go install github.com/sagernet/gomobile/cmd/gomobile@v0.1.11
+          go install github.com/sagernet/gomobile/cmd/gobind@v0.1.11
 
       - name: Build hiddify-core AAR
         working-directory: hiddify-core
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
-          export ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/27.0.12077973
-          CGO_LDFLAGS="-O2 -g -s -w -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_purego -trimpath -ldflags="-w -s -checklinkname=0 -buildid=" -target=android -gcflags "all=-N -l" -o bin/hiddify-core.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile
+          export ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/28.2.13676358
+          CGO_LDFLAGS="-O2 -g -s -w -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -trimpath -ldflags="-w -s -checklinkname=0 -buildid=" -target=android -gcflags "all=-N -l" -o bin/hiddify-core.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile
 
       - name: Copy AAR to app libs
         run: |
