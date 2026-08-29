@@ -107,16 +107,26 @@ jobs:
       - name: Publish APK to Releases
         if: success()
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: demo2099/hiddify-app
+          TAG: ech-latest
+          APK: build/app/outputs/flutter-apk/app-release.apk
         run: |
-          gh release delete ech-latest --repo demo2099/hiddify-app --yes || true
-          git push origin :refs/tags/ech-latest || true
-          sleep 3
-          gh release create ech-latest build/app/outputs/flutter-apk/app-release.apk \
-            --repo demo2099/hiddify-app \
-            --title "Hiddify with ECH (rolling build)" \
-            --notes "Automated rolling build with ECH support (v2rayN format). Commit: ${{ github.sha }}" \
-            --prerelease
+          API="https://api.github.com/repos/$REPO"
+          REL_ID=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" "$API/releases/tags/$TAG" | python3 -c "import sys,json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null)
+          if [ -n "$REL_ID" ]; then
+            curl -s -X DELETE -H "Authorization: Bearer $GITHUB_TOKEN" "$API/releases/$REL_ID"
+          fi
+          curl -s -X DELETE -H "Authorization: Bearer $GITHUB_TOKEN" "$API/git/refs/tags/$TAG" 2>/dev/null || true
+          sleep 2
+          UPLOAD_URL=$(curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" \
+            -d "{\"tag_name\":\"$TAG\",\"name\":\"Hiddify with ECH (rolling build)\",\"prerelease\":true,\"body\":\"Automated rolling build with ECH support (v2rayN format). Commit: ${GITHUB_SHA}\"}" \
+            "$API/releases" | python3 -c "import sys,json; print(json.load(sys.stdin).get('upload_url','').replace('{?name,label}',''))")
+          echo "upload_url=$UPLOAD_URL"
+          curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Content-Type: application/vnd.android.package-archive" \
+            --data-binary @"$APK" \
+            "$UPLOAD_URL?name=app-release.apk"
 
       - name: Upload build log on failure
         if: failure()
