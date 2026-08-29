@@ -91,9 +91,12 @@ jobs:
           mkdir -p android/app/libs
           cp hiddify-core/bin/hiddify-core.aar android/app/libs/
 
-      - name: Flutter build APK
+      - name: Generate code and build APK
         run: |
+          set -eo pipefail
           flutter pub get
+          dart run build_runner build --delete-conflicting-outputs
+          dart run slang
           flutter build apk --release 2>&1 | tee /tmp/flutter_build.log
 
       - name: Upload APK
@@ -116,25 +119,6 @@ jobs:
           replacesArtifacts: true
           artifacts: build/app/outputs/flutter-apk/app-release.apk
           body: "Automated rolling build with ECH support (v2rayN format). Commit: ${{ github.sha }}"
-
-      - name: Diagnose
-        if: always()
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          {
-            echo "PWD=$(pwd)"
-            echo "=== build/app/outputs ==="
-            ls -laR build/app/outputs/ 2>&1 | head -50 || echo NO_OUTPUTS
-            echo "=== find apk (depth 8) ==="
-            find . -name '*.apk' 2>&1 | head
-            echo "=== flutter build log tail ==="
-            tail -60 /tmp/flutter_build.log 2>&1 || echo NO_LOG
-          } > diag.txt 2>&1
-          git config user.email "d@l"; git config user.name "d"
-          git add diag.txt
-          git commit -m "diag [skip ci]" || true
-          git push origin ech-support || true
 
       - name: Upload build log on failure
         if: failure()
