@@ -82,8 +82,9 @@ interface PlatformInterfaceWrapper : PlatformInterface {
 
     override fun closeDefaultInterfaceMonitor(listener: InterfaceUpdateListener) {
         DefaultNetworkMonitor.setListener(null)
-    override fun closeNeighborMonitor(listener: NeighborUpdateListener) {}
     }
+
+    override fun closeNeighborMonitor(listener: NeighborUpdateListener) {}
 
     override fun getInterfaces(): NetworkInterfaceIterator {
         val networks = Application.connectivity.allNetworks
