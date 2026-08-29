@@ -30,7 +30,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: 'hiddify-core/go.mod'
+          go-version: 'stable'
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -87,6 +87,7 @@ jobs:
         run: dart pub global activate fastforge
 
       - name: Build APK
+
         run: |
           fastforge package \
             --platform android \
@@ -98,6 +99,6 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Hiddify-APK-ECH
+          name: Hiddify-ARK-ECH
           path: build/app/outputs/flutter-apk/*.apk
           retention-days: 7
