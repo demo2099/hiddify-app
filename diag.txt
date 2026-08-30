@@ -1,101 +1,101 @@
-github.com/cretz/bine/torutil
-github.com/sagernet/wireguard-go/ratelimiter
-github.com/sagernet/wireguard-go/tai64n
-github.com/sagernet/wireguard-go/tun
-github.com/sagernet/sing-box/protocol/tun
-github.com/sagernet/sing-box/service/ssmapi
-github.com/cretz/bine/control
-github.com/sagernet/gomobile/internal/mobileinit
-github.com/sagernet/sing-box/transport/v2rayquic
-github.com/sagernet/sing-box/common/cloudflare
-github.com/sagernet/gomobile/bind/seq
-google.golang.org/protobuf/types/known/emptypb
-github.com/sagernet/sing-box/transport/sip003
-github.com/sagernet/sing-box/experimental/libbox/internal/procfs
-github.com/sagernet/wireguard-go/device
-github.com/cretz/bine/process
-github.com/sagernet/sing-dns
 github.com/sagernet/sing-box/protocol/shadowsocks
-github.com/sagernet/sing-box/protocol/trojan
-gopkg.in/yaml.v3
+github.com/sagernet/sing-box/transport/trojan
 github.com/cretz/bine/tor
-github.com/sagernet/sing-box/include
-github.com/sagernet/sing-box/protocol/tor
-github.com/sagernet/gomobile/bind/java
-github.com/sagernet/sing-box/protocol/tunnel
-github.com/sagernet/sing-box/protocol/ssh
-github.com/sagernet/sing-vmess/packetaddr
 github.com/xmdhs/clash2singbox/model/singbox
 github.com/hiddify/hiddify-core/v2/ezytel
-github.com/sagernet/sing-vmess/vless
-github.com/sagernet/sing-box/daemon
-github.com/hiddify/hiddify-core/v2/hcommon
+github.com/sagernet/sing-box/protocol/trojan
+github.com/sagernet/gomobile/bind/java
 github.com/sagernet/sing-box/transport/wireguard
-github.com/hiddify/hiddify-core/v2/hello
-github.com/sagernet/sing-box/protocol/vmess
-github.com/tidwall/pretty
-golang.zx2c4.com/wireguard/wgctrl/wgtypes
-github.com/tidwall/gjson
-github.com/hiddify/hiddify-core/v2/service_manager
-github.com/sagernet/wireguard-go/conn
+github.com/sagernet/sing-box/protocol/tor
+github.com/sagernet/sing-box/include
 github.com/xmdhs/clash2singbox/model/clash
-github.com/sagernet/sing-box/protocol/vless
+github.com/sagernet/sing-box/protocol/tun
 github.com/xmdhs/clash2singbox/convert
+github.com/hiddify/hiddify-core/v2/hcommon
+github.com/sagernet/sing-box/protocol/tunnel
+github.com/hiddify/hiddify-core/v2/hello
+github.com/hiddify/hiddify-core/v2/service_manager
 google.golang.org/grpc/encoding/gzip
-github.com/sagernet/wireguard-go/rwcancel
+github.com/sagernet/sing-vmess/vless
+github.com/sagernet/sing-vmess/packetaddr
+github.com/tidwall/pretty
+github.com/sagernet/sing-box/protocol/vmess
+github.com/sagernet/sing-box/daemon
+github.com/tidwall/gjson
+github.com/sagernet/sing-box/protocol/wireguard
+github.com/sagernet/sing-box/protocol/vless
+golang.zx2c4.com/wireguard/wgctrl/wgtypes
+github.com/sagernet/sing-box/protocol/ssh
 github.com/sagernet/sing-box/common/cloudflare
+github.com/sagernet/wireguard-go/conn
+github.com/sagernet/gomobile/internal/mobileinit
+github.com/sagernet/wireguard-go/rwcancel
 github.com/sagernet/wireguard-go/ipc
 github.com/sagernet/wireguard-go/ratelimiter
-github.com/sagernet/sing-box/experimental/libbox
 github.com/sagernet/wireguard-go/tai64n
-github.com/sagernet/wireguard-go/tun
 github.com/sagernet/sing-box/service/ssmapi
 github.com/sagernet/sing-box/transport/v2rayquic
 google.golang.org/protobuf/types/known/emptypb
 github.com/sagernet/sing-box/experimental/libbox/internal/procfs
-github.com/sagernet/sing-box/protocol/wireguard
 github.com/sagernet/sing-dns
-github.com/sagernet/gomobile/internal/mobileinit
-github.com/sagernet/wireguard-go/device
-gopkg.in/yaml.v3
 github.com/sagernet/gomobile/bind/seq
+github.com/sagernet/wireguard-go/tun
+github.com/sagernet/sing-box/experimental/libbox
+gopkg.in/yaml.v3
+github.com/sagernet/wireguard-go/device
 github.com/xmdhs/clash2singbox/model/singbox
-github.com/hiddify/hiddify-core/v2/ezytel
 github.com/sagernet/gomobile/bind/java
-github.com/sagernet/sing-box/transport/wireguard
-github.com/xmdhs/clash2singbox/model/clash
 github.com/sagernet/sing-box/include
+github.com/hiddify/hiddify-core/v2/ezytel
 github.com/hiddify/hiddify-core/v2/hcommon
 github.com/hiddify/hiddify-core/v2/hello
-github.com/xmdhs/clash2singbox/convert
+github.com/sagernet/sing-box/transport/wireguard
 github.com/hiddify/hiddify-core/v2/service_manager
-github.com/sagernet/sing-box/experimental/libbox
+github.com/xmdhs/clash2singbox/model/clash
+github.com/xmdhs/clash2singbox/convert
+github.com/sagernet/sing-box/daemon
 google.golang.org/grpc/encoding/gzip
-github.com/hiddify/ray2sing/ray2sing
-github.com/hiddify/hiddify-core/v2/hutils
-# github.com/hiddify/ray2sing/ray2sing
-../../../ray2sing/ray2sing/warp.go:18:2: declared and not used: getInt
-github.com/sagernet/sing-box/daemon
-github.com/sagernet/sing-box/protocol/wireguard
+github.com/sagernet/sing-box/experimental/libbox
 github.com/sagernet/gomobile/internal/mobileinit
+github.com/sagernet/sing-box/protocol/wireguard
+github.com/hiddify/hiddify-core/v2/hutils
+github.com/hiddify/ray2sing/ray2sing
 github.com/sagernet/gomobile/bind/seq
-github.com/sagernet/sing-box/include
+github.com/sagernet/sing-box/experimental/libbox
 github.com/sagernet/gomobile/bind/java
+github.com/hiddify/hiddify-core/v2/config
+github.com/sagernet/sing-box/include
+# github.com/hiddify/hiddify-core/v2/config
+../../../v2/config/builder.go:192:39: undefined: option.WARPEndpointOptions
+../../../v2/config/builder.go:217:41: undefined: option.WARPEndpointOptions
+../../../v2/config/warp.go:189:15: undefined: T.WARPEndpointOptions
+../../../v2/config/warp.go:207:40: undefined: option.WARPEndpointOptions
 github.com/sagernet/sing-box/daemon
-github.com/hiddify/hiddify-core/v2/hutils
 github.com/hiddify/ray2sing/ray2sing
-# github.com/hiddify/ray2sing/ray2sing
-../../../ray2sing/ray2sing/warp.go:18:2: declared and not used: getInt
+github.com/hiddify/hiddify-core/v2/hutils
+github.com/hiddify/hiddify-core/v2/config
+# github.com/hiddify/hiddify-core/v2/config
+../../../v2/config/builder.go:192:39: undefined: option.WARPEndpointOptions
+../../../v2/config/builder.go:217:41: undefined: option.WARPEndpointOptions
+../../../v2/config/warp.go:189:15: undefined: T.WARPEndpointOptions
+../../../v2/config/warp.go:207:40: undefined: option.WARPEndpointOptions
+github.com/hiddify/ray2sing/ray2sing
+github.com/hiddify/hiddify-core/v2/hutils
 github.com/sagernet/sing-box/experimental/libbox
-github.com/sagernet/sing-box/experimental/libbox
+github.com/hiddify/hiddify-core/v2/config
+# github.com/hiddify/hiddify-core/v2/config
+../../../v2/config/builder.go:192:39: undefined: option.WARPEndpointOptions
+../../../v2/config/builder.go:217:41: undefined: option.WARPEndpointOptions
+../../../v2/config/warp.go:189:15: undefined: T.WARPEndpointOptions
+../../../v2/config/warp.go:207:40: undefined: option.WARPEndpointOptions
 github.com/hiddify/hiddify-core/v2/hutils
 github.com/hiddify/ray2sing/ray2sing
-# github.com/hiddify/ray2sing/ray2sing
-../../../ray2sing/ray2sing/warp.go:18:2: declared and not used: getInt
-github.com/hiddify/hiddify-core/v2/hutils
-github.com/hiddify/ray2sing/ray2sing
-# github.com/hiddify/ray2sing/ray2sing
-../../../ray2sing/ray2sing/warp.go:18:2: declared and not used: getInt
-gomobile: go build -tags with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -v -gcflags all=-N -l -ldflags -w -s -checklinkname=0 -buildid= -trimpath -buildmode=c-shared -o=/tmp/gomobile-work-4284586988/android/src/main/jniLibs/armeabi-v7a/libhiddify-core.so . failed: exit status 1
+github.com/hiddify/hiddify-core/v2/config
+# github.com/hiddify/hiddify-core/v2/config
+../../../v2/config/builder.go:192:39: undefined: option.WARPEndpointOptions
+../../../v2/config/builder.go:217:41: undefined: option.WARPEndpointOptions
+../../../v2/config/warp.go:189:15: undefined: T.WARPEndpointOptions
+../../../v2/config/warp.go:207:40: undefined: option.WARPEndpointOptions
+gomobile: go build -tags with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -v -gcflags all=-N -l -ldflags -w -s -checklinkname=0 -buildid= -trimpath -buildmode=c-shared -o=/tmp/gomobile-work-926257278/android/src/main/jniLibs/armeabi-v7a/libhiddify-core.so . failed: exit status 1
 
 === flutter log ===
