@@ -43,9 +43,10 @@ jobs:
           git submodule update --init
           if [ -f hiddify-core/.gitmodules ]; then
             sed -i 's|git@github.com:demo2099/hiddify-sing-box.git|https://github.com/hiddify/hiddify-sing-box.git|' hiddify-core/.gitmodules
+            sed -i 's|git@github.com:hiddify/|https://github.com/hiddify/|g' hiddify-core/hiddify-sing-box/.gitmodules
             cd hiddify-core
             git submodule sync hiddify-sing-box
-            git submodule update --init hiddify-sing-box
+            git submodule update --init --recursive hiddify-sing-box
             cd ..
           fi
 
