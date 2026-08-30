@@ -140,14 +140,6 @@ jobs:
           echo "detected go toolchain: $GOV"
           echo "$GOV" | grep -q 'go1\.25\.6' || { echo "::error::wrong go toolchain: $GOV"; exit 1; }
 
-      - name: Publish resolved go.mod and go.sum to the branch
-        if: always()
-        run: |
-          mkdir -p resolved-go
-          cp hiddify-core/go.mod resolved-go/hiddify-core.go.mod
-          cp hiddify-core/go.sum resolved-go/hiddify-core.go.sum
-          wc -l resolved-go/hiddify-core.go.mod resolved-go/hiddify-core.go.sum
-
       - name: Upload resolved go.mod and go.sum
         if: always()
         uses: actions/upload-artifact@v4
@@ -212,6 +204,6 @@ jobs:
           echo "=== flutter log ===" >> diag.txt
           cat /tmp/flutter_build.log 2>/dev/null | tail -50 >> diag.txt || echo "no flutter log" >> diag.txt
           git config user.email "d@l"; git config user.name "d"
-          git add diag.txt resolved-go/
+          git add diag.txt
           git commit -m "diag [skip ci]" || true
           git push origin ech-support || true
