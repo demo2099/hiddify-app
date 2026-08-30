@@ -1,1 +1,548 @@
-no log
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 85.0.0 (105.0.0 available)
+  accessibility_tools 2.3.0 (2.8.0 available)
+  analyzer 7.6.0 (14.1.0 available)
+  analyzer_plugin 0.13.4 (0.14.14 available)
+  app_links 6.4.0 (7.2.1 available)
+  app_links_platform_interface 2.0.2 (2.0.4 available)
+  archive 4.0.4 (4.2.0 available)
+  args 2.6.0 (2.7.0 available)
+  async 2.13.0 (2.13.1 available)
+  basic_utils 5.7.0 (5.8.2 available)
+  build 2.4.2 (4.0.10 available)
+  build_config 1.1.2 (1.3.2 available)
+  build_daemon 4.0.4 (4.1.5 available)
+  build_modules 5.1.5 (5.1.12 available)
+  build_resolvers 2.4.4 (3.0.4 available)
+  build_runner 2.4.15 (2.16.0 available)
+  build_runner_core 8.0.0 (9.3.2 available)
+  build_web_compilers 4.4.6 (4.8.10 available)
+  built_value 8.9.5 (8.12.7 available)
+  characters 1.4.0 (1.4.1 available)
+  checked_yaml 2.0.3 (2.0.4 available)
+  cli_util 0.4.2 (0.6.0 available)
+  clock 1.1.2 (1.1.3 available)
+  code_builder 4.10.1 (4.12.0 available)
+  cross_file 0.3.4+2 (0.3.5+5 available)
+  crypto 3.0.6 (3.0.7 available)
+  csv 6.0.0 (8.0.0 available)
+  cupertino_http 2.0.2 (3.0.2 available)
+  custom_lint_core 0.7.5 (0.8.2 available)
+  custom_lint_visitor 1.0.0+7.7.0 (1.0.0+9.0.0 available)
+  dart_mappable 4.4.0 (4.8.0 available)
+  dart_mappable_builder 4.4.0 (4.9.0 available)
+  dart_style 3.1.1 (3.1.13 available)
+  decimal 3.2.4 (3.2.6 available)
+  device_info_plus 11.4.0 (13.2.0 available)
+  device_info_plus_platform_interface 7.0.2 (8.1.0 available)
+  dio 5.8.0+1 (5.11.0 available)
+  dio_web_adapter 2.1.1 (2.2.1 available)
+  drift 2.26.0 (2.34.3 available)
+  drift_dev 2.26.0 (2.34.5 available)
+  drift_flutter 0.2.4 (0.3.1 available)
+  dynamic_color 1.7.0 (2.1.0 available)
+  equatable 2.0.7 (2.1.0 available)
+  ffi 2.1.4 (2.2.0 available)
+  ffigen 19.1.0 (21.0.0 available)
+  file_picker 8.3.7 (12.1.2 available)
+  flutter_displaymode 0.6.0 (0.7.0 available)
+  flutter_gen_core 5.10.0 (5.15.0 available)
+  flutter_gen_runner 5.10.0 (5.15.0 available)
+  flutter_hooks 0.20.5 (0.21.3+1 available)
+  flutter_keyboard_visibility 6.0.0 (7.0.1 available)
+  flutter_keyboard_visibility_linux 1.0.0 (2.0.0 available)
+  flutter_keyboard_visibility_macos 1.0.0 (2.0.0 available)
+  flutter_keyboard_visibility_platform_interface 2.0.0 (3.0.0 available)
+  flutter_keyboard_visibility_web 2.0.0 (3.0.0 available)
+  flutter_keyboard_visibility_windows 1.0.0 (2.0.0 available)
+  flutter_markdown_plus 1.0.6 (1.0.12 available)
+  flutter_native_splash 2.4.5 (2.4.8 available)
+  flutter_plugin_android_lifecycle 2.0.27 (2.0.35 available)
+  flutter_riverpod 2.6.1 (3.4.2 available)
+  flutter_svg 2.0.17 (2.3.0 available)
+  flutter_typeahead 5.2.0 (6.0.0 available)
+  font_awesome_flutter 10.8.0 (11.0.0 available)
+  fpdart 1.1.1 (1.2.0 available)
+  freezed 2.5.8 (4.0.0 available)
+  freezed_annotation 2.4.4 (3.1.0 available)
+  glob 2.1.3 (2.2.0 available)
+  go_router 16.2.4 (18.0.0 available)
+  google_identity_services_web 0.3.3 (0.3.3+1 available)
+  googleapis_auth 2.3.1 (2.3.3 available)
+  grpc 4.3.1 (5.1.0 available)
+  gtk 2.1.0 (2.2.0 available)
+  hooks_riverpod 2.6.1 (3.4.2 available)
+  html 0.15.5 (0.15.7 available)
+  iconsax_flutter 1.0.0 (1.0.1 available)
+  image 4.5.3 (4.9.2 available)
+  image_size_getter 2.4.0 (2.4.1 available)
+  in_app_review 2.0.10 (2.0.12 available)
+  injector 3.0.0 (4.0.0 available)
+  intl 0.20.2 (0.20.3 available)
+  io 1.0.5 (1.1.0 available)
+  iregexp 0.1.2 (0.2.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  json_path 0.7.5 (0.9.0 available)
+  json_serializable 6.9.5 (6.14.1 available)
+  markdown 7.3.0 (7.3.1 available)
+  matcher 0.12.17 (0.12.20 available)
+  material_color_utilities 0.11.1 (0.13.1 available)
+  maybe_just_nothing 0.5.3 (0.6.0 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mobile_scanner 7.2.0 (7.4.0 available)
+  objective_c 4.1.0 (9.6.0 available)
+  package_config 2.1.1 (3.0.0 available)
+  package_info_plus 8.3.0 (10.2.1 available)
+  package_info_plus_platform_interface 3.2.0 (4.1.0 available)
+  path_provider 2.1.5 (2.1.6 available)
+  path_provider_android 2.2.16 (2.3.1 available)
+  path_provider_foundation 2.4.1 (2.6.0 available)
+  path_provider_linux 2.2.1 (2.2.2 available)
+  path_provider_platform_interface 2.1.2 (2.1.3 available)
+  petitparser 6.1.0 (7.0.2 available)
+  pointer_interceptor_ios 0.10.1 (0.10.1+1 available)
+  pointer_interceptor_web 0.10.2+1 (0.10.3 available)
+  pointycastle 3.9.1 (4.0.0 available)
+  pool 1.5.1 (1.5.3 available)
+  posix 6.0.1 (6.5.2 available)
+  process 5.0.3 (5.0.6 available)
+  protobuf 5.1.0 (6.0.0 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  qr 3.0.2 (4.0.0 available)
+  rfc_6901 0.2.0 (0.2.1 available)
+  riverpod 2.6.1 (3.4.2 available)
+  riverpod_analyzer_utils 0.5.9 (0.5.10 available)
+  riverpod_annotation 2.6.1 (4.0.6 available)
+  riverpod_generator 2.6.4 (4.0.8 available)
+  scratch_space 1.2.0 (1.2.2 available)
+  screen_retriever 0.2.0 (0.2.2 available)
+  screen_retriever_linux 0.2.0 (0.2.2 available)
+  screen_retriever_macos 0.2.0 (0.2.2 available)
+  screen_retriever_platform_interface 0.2.0 (0.2.2 available)
+  screen_retriever_windows 0.2.0 (0.2.2 available)
+  sentry 8.14.2 (9.28.0 available)
+  sentry_dart_plugin 2.4.1 (3.4.0 available)
+  sentry_flutter 8.14.2 (9.28.0 available)
+  share_plus 10.1.4 (13.3.0 available)
+  share_plus_platform_interface 5.0.2 (7.2.0 available)
+  shared_preferences 2.5.2 (2.5.5 available)
+  shared_preferences_android 2.4.8 (2.4.28 available)
+  shared_preferences_foundation 2.5.4 (2.5.7 available)
+  shared_preferences_platform_interface 2.4.1 (2.4.2 available)
+  simple_icons 10.1.3 (16.23.0 available)
+  slang 4.8.1 (4.19.0 available)
+  slang_build_runner 4.8.1 (4.19.0 available)
+  slang_flutter 4.8.0 (4.19.0 available)
+  source_gen 2.0.0 (4.3.0 available)
+  source_helper 1.3.5 (1.3.13 available)
+  source_maps 0.10.13 (0.10.14 available)
+  source_span 1.10.1 (1.10.2 available)
+  sqlite3 2.7.5 (3.5.2 available)
+  sqlite3_flutter_libs 0.5.31 (0.6.0+eol available)
+  sqlparser 0.41.0 (0.45.0 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  system_info2 4.0.0 (4.1.0 available)
+  test_api 0.7.7 (0.7.13 available)
+  text_scroll 0.2.0 (0.2.1 available)
+  time 2.1.5 (2.1.6 available)
+  toastification 2.3.0 (3.2.0 available)
+  tray_manager 0.5.0 (0.5.3 available)
+  universal_io 2.2.2 (2.3.1 available)
+  upgrader 11.3.1 (13.7.0 available)
+  url_launcher 6.3.1 (6.3.2 available)
+  url_launcher_android 6.3.15 (6.3.33 available)
+  url_launcher_ios 6.3.2 (6.4.2 available)
+  url_launcher_linux 3.2.1 (3.2.3 available)
+  url_launcher_macos 3.2.2 (3.2.6 available)
+  url_launcher_web 2.4.0 (2.4.3 available)
+  url_launcher_windows 3.1.4 (3.1.6 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_graphics 1.1.18 (1.2.3 available)
+  vector_graphics_compiler 1.1.16 (1.3.0 available)
+  vector_math 2.2.0 (2.4.2 available)
+  vm_service 15.0.0 (15.3.0 available)
+  watcher 1.1.1 (1.2.1 available)
+  web_socket 0.1.6 (1.0.1 available)
+  web_socket_channel 3.0.2 (3.0.3 available)
+  win32 5.12.0 (6.4.0 available)
+  win32_registry 2.1.0 (3.0.3 available)
+  window_manager 0.5.0 (0.5.2 available)
+  xml 6.5.0 (7.0.1 available)
+  yaml 3.1.3 (3.1.4 available)
+  yaml_edit 2.2.2 (2.2.4 available)
+Got dependencies!
+174 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+[INFO] Generating build script...
+[WARNING] Could not load imported package "flag_builder" for definition "circle_flags:assetsToCache".
+[WARNING] Could not load imported package "flag_builder" for definition "circle_flags:combineFlagFile".
+[INFO] Generating build script completed, took 250ms
+
+[INFO] Precompiling build script......
+[INFO] Precompiling build script... completed, took 4.7s
+
+[FlutterGen] v5.10.0 Loading ...
+[FlutterGen] Reading options from pubspec.yaml
+[FlutterGen] Specified build.yaml as input but the file does not contain valid options, ignoring...
+[INFO] Initializing inputs
+[INFO] Building new asset graph...
+[INFO] Building new asset graph completed, took 6.4s
+
+[INFO] Checking for unexpected pre-existing outputs....
+[INFO] Checking for unexpected pre-existing outputs. completed, took 0ms
+
+[INFO] Running build...
+[INFO] Generating SDK summary...
+[INFO] 1.7s elapsed, 0/16 actions completed.
+[INFO] 3.4s elapsed, 0/16 actions completed.
+[WARNING] riverpod_generator on test/drift/db/migration_test.dart:
+Your current `analyzer` version may not fully support your current SDK version.
+
+Analyzer language version: 3.9.0
+SDK language version: 3.10.0
+
+Please update to the latest `analyzer` version (14.1.0) by running
+`flutter packages upgrade`.
+
+If you are not getting the latest version by running the above command, you
+can try adding a constraint like the following to your pubspec to start
+diagnosing why you can't get the latest version:
+
+dev_dependencies:
+  analyzer: ^14.1.0
+
+[INFO] Generating SDK summary completed, took 4.2s
+
+[INFO] 5.3s elapsed, 24/121 actions completed.
+[INFO] 6.5s elapsed, 60/142 actions completed.
+[INFO] 7.6s elapsed, 114/169 actions completed.
+[INFO] 8.7s elapsed, 138/176 actions completed.
+[INFO] 12.7s elapsed, 215/250 actions completed.
+[INFO] 18.2s elapsed, 296/323 actions completed.
+[INFO] 19.3s elapsed, 358/375 actions completed.
+[INFO] 25.9s elapsed, 359/375 actions completed.
+[INFO] 26.9s elapsed, 497/511 actions completed.
+[INFO] 28.0s elapsed, 769/774 actions completed.
+[INFO] 29.4s elapsed, 877/898 actions completed.
+[INFO] 30.8s elapsed, 935/951 actions completed.
+[INFO] 32.1s elapsed, 986/1004 actions completed.
+[INFO] 33.1s elapsed, 1088/1106 actions completed.
+[INFO] 34.2s elapsed, 1137/1154 actions completed.
+[INFO] 35.5s elapsed, 1218/1234 actions completed.
+[INFO] 36.6s elapsed, 1557/1564 actions completed.
+[INFO] 37.7s elapsed, 1899/1915 actions completed.
+[WARNING] drift_dev on lib/hiddifycore/generated/v2/common/common.pb.dart:
+The language version of this file is Dart 2.12. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+[WARNING] drift_dev on lib/hiddifycore/generated/v2/common/common.pbenum.dart:
+The language version of this file is Dart 2.12. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+[INFO] 39.2s elapsed, 2295/2311 actions completed.
+[INFO] 40.3s elapsed, 2500/2504 actions completed.
+[INFO] 41.3s elapsed, 2646/2657 actions completed.
+[FlutterGen] Generated: lib/gen/assets.gen.dart
+[FlutterGen] Generated: lib/gen/fonts.gen.dart
+[FlutterGen] Finished generating.
+[INFO] 42.4s elapsed, 2777/2777 actions completed.
+[INFO] 43.5s elapsed, 2933/2949 actions completed.
+[INFO] 44.5s elapsed, 3015/3030 actions completed.
+[INFO] 45.6s elapsed, 3212/3212 actions completed.
+[INFO] Running build completed, took 46.0s
+
+[INFO] Caching finalized dependency graph...
+[INFO] Caching finalized dependency graph completed, took 1.5s
+
+[INFO] Succeeded after 48.1s with 1059 outputs (11192 actions)
+
+Generating translations...
+
+Found build.yaml!
+
+ -> fileType: json
+ -> baseLocale: en
+ -> fallbackStrategy: baseLocale
+ -> inputDirectory: assets/translations
+ -> inputFilePattern: .i18n.json
+ -> outputDirectory: lib/gen
+ -> outputFileName: translations.g.dart
+ -> lazy: true
+ -> localeHandling: false
+ -> flutterIntegration: true
+ -> namespaces: false
+ -> translateVar: t
+ -> enumName: AppLocale
+ -> translationClassVisibility: public
+ -> keyCase: null (no change)
+ -> keyCase (for maps): null (no change)
+ -> paramCase: null (no change)
+ -> sanitization: enabled / 'k' / caseStyle: CaseStyle.camel
+ -> stringInterpolation: dart
+ -> renderFlatMap: true
+ -> translationOverrides: false
+ -> renderTimestamp: true
+ -> renderStatistics: true
+ -> maps: []
+ -> pluralization/auto: cardinal
+ -> pluralization/default_parameter: n
+ -> pluralization/cardinal: []
+ -> pluralization/ordinal: []
+ -> contexts: no custom contexts
+ -> interfaces: no interfaces
+ -> obfuscation: disabled
+ -> format: disabled
+ -> autodoc: enabled ($BASE$)
+ -> imports: []
+ -> generateEnum: true
+
+Scanning translations...
+
+        ar -> assets/translations/ar.i18n.json
+ (base) en -> assets/translations/en.i18n.json
+        es -> assets/translations/es.i18n.json
+        fa -> assets/translations/fa.i18n.json
+        fr -> assets/translations/fr.i18n.json
+        id -> assets/translations/id.i18n.json
+     pt-BR -> assets/translations/pt-BR.i18n.json
+        ru -> assets/translations/ru.i18n.json
+        tr -> assets/translations/tr.i18n.json
+     zh-CN -> assets/translations/zh-CN.i18n.json
+     zh-TW -> assets/translations/zh-TW.i18n.json
+
+Output:
+ -> lib/gen/translations.g.dart
+ -> lib/gen/translations_en.g.dart
+ -> lib/gen/translations_ar.g.dart
+ -> lib/gen/translations_es.g.dart
+ -> lib/gen/translations_fa.g.dart
+ -> lib/gen/translations_fr.g.dart
+ -> lib/gen/translations_id.g.dart
+ -> lib/gen/translations_pt_BR.g.dart
+ -> lib/gen/translations_ru.g.dart
+ -> lib/gen/translations_tr.g.dart
+ -> lib/gen/translations_zh_CN.g.dart
+ -> lib/gen/translations_zh_TW.g.dart
+
+[32mTranslations generated successfully. (0.199 seconds)[0m
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 85.0.0 (105.0.0 available)
+  accessibility_tools 2.3.0 (2.8.0 available)
+  analyzer 7.6.0 (14.1.0 available)
+  analyzer_plugin 0.13.4 (0.14.14 available)
+  app_links 6.4.0 (7.2.1 available)
+  app_links_platform_interface 2.0.2 (2.0.4 available)
+  archive 4.0.4 (4.2.0 available)
+  args 2.6.0 (2.7.0 available)
+  async 2.13.0 (2.13.1 available)
+  basic_utils 5.7.0 (5.8.2 available)
+  build 2.4.2 (4.0.10 available)
+  build_config 1.1.2 (1.3.2 available)
+  build_daemon 4.0.4 (4.1.5 available)
+  build_modules 5.1.5 (5.1.12 available)
+  build_resolvers 2.4.4 (3.0.4 available)
+  build_runner 2.4.15 (2.16.0 available)
+  build_runner_core 8.0.0 (9.3.2 available)
+  build_web_compilers 4.4.6 (4.8.10 available)
+  built_value 8.9.5 (8.12.7 available)
+  characters 1.4.0 (1.4.1 available)
+  checked_yaml 2.0.3 (2.0.4 available)
+  cli_util 0.4.2 (0.6.0 available)
+  clock 1.1.2 (1.1.3 available)
+  code_builder 4.10.1 (4.12.0 available)
+  cross_file 0.3.4+2 (0.3.5+5 available)
+  crypto 3.0.6 (3.0.7 available)
+  csv 6.0.0 (8.0.0 available)
+  cupertino_http 2.0.2 (3.0.2 available)
+  custom_lint_core 0.7.5 (0.8.2 available)
+  custom_lint_visitor 1.0.0+7.7.0 (1.0.0+9.0.0 available)
+  dart_mappable 4.4.0 (4.8.0 available)
+  dart_mappable_builder 4.4.0 (4.9.0 available)
+  dart_style 3.1.1 (3.1.13 available)
+  decimal 3.2.4 (3.2.6 available)
+  device_info_plus 11.4.0 (13.2.0 available)
+  device_info_plus_platform_interface 7.0.2 (8.1.0 available)
+  dio 5.8.0+1 (5.11.0 available)
+  dio_web_adapter 2.1.1 (2.2.1 available)
+  drift 2.26.0 (2.34.3 available)
+  drift_dev 2.26.0 (2.34.5 available)
+  drift_flutter 0.2.4 (0.3.1 available)
+  dynamic_color 1.7.0 (2.1.0 available)
+  equatable 2.0.7 (2.1.0 available)
+  ffi 2.1.4 (2.2.0 available)
+  ffigen 19.1.0 (21.0.0 available)
+  file_picker 8.3.7 (12.1.2 available)
+  flutter_displaymode 0.6.0 (0.7.0 available)
+  flutter_gen_core 5.10.0 (5.15.0 available)
+  flutter_gen_runner 5.10.0 (5.15.0 available)
+  flutter_hooks 0.20.5 (0.21.3+1 available)
+  flutter_keyboard_visibility 6.0.0 (7.0.1 available)
+  flutter_keyboard_visibility_linux 1.0.0 (2.0.0 available)
+  flutter_keyboard_visibility_macos 1.0.0 (2.0.0 available)
+  flutter_keyboard_visibility_platform_interface 2.0.0 (3.0.0 available)
+  flutter_keyboard_visibility_web 2.0.0 (3.0.0 available)
+  flutter_keyboard_visibility_windows 1.0.0 (2.0.0 available)
+  flutter_markdown_plus 1.0.6 (1.0.12 available)
+  flutter_native_splash 2.4.5 (2.4.8 available)
+  flutter_plugin_android_lifecycle 2.0.27 (2.0.35 available)
+  flutter_riverpod 2.6.1 (3.4.2 available)
+  flutter_svg 2.0.17 (2.3.0 available)
+  flutter_typeahead 5.2.0 (6.0.0 available)
+  font_awesome_flutter 10.8.0 (11.0.0 available)
+  fpdart 1.1.1 (1.2.0 available)
+  freezed 2.5.8 (4.0.0 available)
+  freezed_annotation 2.4.4 (3.1.0 available)
+  glob 2.1.3 (2.2.0 available)
+  go_router 16.2.4 (18.0.0 available)
+  google_identity_services_web 0.3.3 (0.3.3+1 available)
+  googleapis_auth 2.3.1 (2.3.3 available)
+  grpc 4.3.1 (5.1.0 available)
+  gtk 2.1.0 (2.2.0 available)
+  hooks_riverpod 2.6.1 (3.4.2 available)
+  html 0.15.5 (0.15.7 available)
+  iconsax_flutter 1.0.0 (1.0.1 available)
+  image 4.5.3 (4.9.2 available)
+  image_size_getter 2.4.0 (2.4.1 available)
+  in_app_review 2.0.10 (2.0.12 available)
+  injector 3.0.0 (4.0.0 available)
+  intl 0.20.2 (0.20.3 available)
+  io 1.0.5 (1.1.0 available)
+  iregexp 0.1.2 (0.2.0 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  json_path 0.7.5 (0.9.0 available)
+  json_serializable 6.9.5 (6.14.1 available)
+  markdown 7.3.0 (7.3.1 available)
+  matcher 0.12.17 (0.12.20 available)
+  material_color_utilities 0.11.1 (0.13.1 available)
+  maybe_just_nothing 0.5.3 (0.6.0 available)
+  meta 1.17.0 (1.19.0 available)
+  mime 2.0.0 (2.1.0 available)
+  mobile_scanner 7.2.0 (7.4.0 available)
+  objective_c 4.1.0 (9.6.0 available)
+  package_config 2.1.1 (3.0.0 available)
+  package_info_plus 8.3.0 (10.2.1 available)
+  package_info_plus_platform_interface 3.2.0 (4.1.0 available)
+  path_provider 2.1.5 (2.1.6 available)
+  path_provider_android 2.2.16 (2.3.1 available)
+  path_provider_foundation 2.4.1 (2.6.0 available)
+  path_provider_linux 2.2.1 (2.2.2 available)
+  path_provider_platform_interface 2.1.2 (2.1.3 available)
+  petitparser 6.1.0 (7.0.2 available)
+  pointer_interceptor_ios 0.10.1 (0.10.1+1 available)
+  pointer_interceptor_web 0.10.2+1 (0.10.3 available)
+  pointycastle 3.9.1 (4.0.0 available)
+  pool 1.5.1 (1.5.3 available)
+  posix 6.0.1 (6.5.2 available)
+  process 5.0.3 (5.0.6 available)
+  protobuf 5.1.0 (6.0.0 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  qr 3.0.2 (4.0.0 available)
+  rfc_6901 0.2.0 (0.2.1 available)
+  riverpod 2.6.1 (3.4.2 available)
+  riverpod_analyzer_utils 0.5.9 (0.5.10 available)
+  riverpod_annotation 2.6.1 (4.0.6 available)
+  riverpod_generator 2.6.4 (4.0.8 available)
+  scratch_space 1.2.0 (1.2.2 available)
+  screen_retriever 0.2.0 (0.2.2 available)
+  screen_retriever_linux 0.2.0 (0.2.2 available)
+  screen_retriever_macos 0.2.0 (0.2.2 available)
+  screen_retriever_platform_interface 0.2.0 (0.2.2 available)
+  screen_retriever_windows 0.2.0 (0.2.2 available)
+  sentry 8.14.2 (9.28.0 available)
+  sentry_dart_plugin 2.4.1 (3.4.0 available)
+  sentry_flutter 8.14.2 (9.28.0 available)
+  share_plus 10.1.4 (13.3.0 available)
+  share_plus_platform_interface 5.0.2 (7.2.0 available)
+  shared_preferences 2.5.2 (2.5.5 available)
+  shared_preferences_android 2.4.8 (2.4.28 available)
+  shared_preferences_foundation 2.5.4 (2.5.7 available)
+  shared_preferences_platform_interface 2.4.1 (2.4.2 available)
+  simple_icons 10.1.3 (16.23.0 available)
+  slang 4.8.1 (4.19.0 available)
+  slang_build_runner 4.8.1 (4.19.0 available)
+  slang_flutter 4.8.0 (4.19.0 available)
+  source_gen 2.0.0 (4.3.0 available)
+  source_helper 1.3.5 (1.3.13 available)
+  source_maps 0.10.13 (0.10.14 available)
+  source_span 1.10.1 (1.10.2 available)
+  sqlite3 2.7.5 (3.5.2 available)
+  sqlite3_flutter_libs 0.5.31 (0.6.0+eol available)
+  sqlparser 0.41.0 (0.45.0 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  stream_transform 2.1.1 (2.1.2 available)
+  system_info2 4.0.0 (4.1.0 available)
+  test_api 0.7.7 (0.7.13 available)
+  text_scroll 0.2.0 (0.2.1 available)
+  time 2.1.5 (2.1.6 available)
+  toastification 2.3.0 (3.2.0 available)
+  tray_manager 0.5.0 (0.5.3 available)
+  universal_io 2.2.2 (2.3.1 available)
+  upgrader 11.3.1 (13.7.0 available)
+  url_launcher 6.3.1 (6.3.2 available)
+  url_launcher_android 6.3.15 (6.3.33 available)
+  url_launcher_ios 6.3.2 (6.4.2 available)
+  url_launcher_linux 3.2.1 (3.2.3 available)
+  url_launcher_macos 3.2.2 (3.2.6 available)
+  url_launcher_web 2.4.0 (2.4.3 available)
+  url_launcher_windows 3.1.4 (3.1.6 available)
+  uuid 4.5.1 (4.6.0 available)
+  vector_graphics 1.1.18 (1.2.3 available)
+  vector_graphics_compiler 1.1.16 (1.3.0 available)
+  vector_math 2.2.0 (2.4.2 available)
+  vm_service 15.0.0 (15.3.0 available)
+  watcher 1.1.1 (1.2.1 available)
+  web_socket 0.1.6 (1.0.1 available)
+  web_socket_channel 3.0.2 (3.0.3 available)
+  win32 5.12.0 (6.4.0 available)
+  win32_registry 2.1.0 (3.0.3 available)
+  window_manager 0.5.0 (0.5.2 available)
+  xml 6.5.0 (7.0.1 available)
+  yaml 3.1.3 (3.1.4 available)
+  yaml_edit 2.2.2 (2.2.4 available)
+Got dependencies!
+174 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleRelease'...                        
++++
+No keystore defined. The app will not be signed.
+Create a android/key.properties file with the following properties:
+storePassword
+keyPassword
+keyAlias
+storeFile
++++
+Checking the license for package Android SDK Platform 31 in /usr/local/lib/android/sdk/licenses
+License for package Android SDK Platform 31 accepted.
+Preparing "Install Android SDK Platform 31 (revision 1)".
+"Install Android SDK Platform 31 (revision 1)" ready.
+Installing Android SDK Platform 31 in /usr/local/lib/android/sdk/platforms/android-31
+"Install Android SDK Platform 31 (revision 1)" complete.
+"Install Android SDK Platform 31 (revision 1)" finished.
+Checking the license for package Android SDK Platform 33 in /usr/local/lib/android/sdk/licenses
+License for package Android SDK Platform 33 accepted.
+Preparing "Install Android SDK Platform 33 (revision 3)".
+"Install Android SDK Platform 33 (revision 3)" ready.
+Installing Android SDK Platform 33 in /usr/local/lib/android/sdk/platforms/android-33
+"Install Android SDK Platform 33 (revision 3)" complete.
+"Install Android SDK Platform 33 (revision 3)" finished.
+Note: /home/runner/.pub-cache/hosted/pub.dev/in_app_review-2.0.10/android/src/main/java/dev/britannio/in_app_review/InAppReviewPlugin.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Expected to find fonts for (packages/cupertino_icons/CupertinoIcons, MaterialIcons, packages/fluentui_system_icons/FluentSystemIcons-Regular, ..., packages/simple_icons/SimpleIcons, packages/iconsax_flutter/FlutterIconsax), but found (MaterialIcons, packages/iconsax_flutter/FlutterIconsax, packages/simple_icons/SimpleIcons, ..., packages/fluentui_system_icons/FluentSystemIcons-Regular, packages/fluentui_system_icons/FluentSystemIcons-Filled). This usually means you are referring to font families in an IconData class but not including them in the assets section of your pubspec.yaml, are missing the package that would include them, or are missing "uses-material-design: true".
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 17388 bytes (98.9% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "FluentSystemIcons-Filled.ttf" was tree-shaken, reducing it from 2148440 to 868 bytes (100.0% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "SimpleIcons.ttf" was tree-shaken, reducing it from 1318664 to 3488 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "FlutterIconsax.ttf" was tree-shaken, reducing it from 670228 to 1924 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "fa-solid-900.ttf" was tree-shaken, reducing it from 423676 to 1196 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "FluentSystemIcons-Regular.ttf" was tree-shaken, reducing it from 2435788 to 5176 bytes (99.8% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Checking the license for package CMake 3.22.1 in /usr/local/lib/android/sdk/licenses
+License for package CMake 3.22.1 accepted.
+Preparing "Install CMake 3.22.1 v.3.22.1".
+"Install CMake 3.22.1 v.3.22.1" ready.
+Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
+"Install CMake 3.22.1 v.3.22.1" complete.
+"Install CMake 3.22.1 v.3.22.1" finished.
+Caught exception: Already watching path: /home/runner/work/hiddify-app/hiddify-app/android
+Running Gradle task 'assembleRelease'...                          454.0s
+✓ Built build/app/outputs/flutter-apk/app-release.apk (363.1MB)
