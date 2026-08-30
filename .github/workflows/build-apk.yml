@@ -41,28 +41,17 @@ jobs:
           git config --global "url.https://github.com/.insteadOf" "$SSH_PREFIX"
           git config --global "url.https://github.com/.insteadOf" "ssh://${SSH_PREFIX/:/}"
           git submodule update --init || true
-          # Fix hiddify-sing-box submodule URLs and init recursively
-          if [ -f hiddify-core/.gitmodules ]; then
-            sed -i 's|git@github.com:demo2099/hiddify-sing-box.git|https://github.com/hiddify/hiddify-sing-box.git|' hiddify-core/.gitmodules
+          if [ -d hiddify-core ]; then
             cd hiddify-core
-            git submodule sync hiddify-sing-box
-            git submodule update --init hiddify-sing-box || true
-            # Fix nested replace/ submodules inside hiddify-sing-box
-            if [ -f hiddify-sing-box/.gitmodules ]; then
-              sed -i 's|git@github.com:hiddify/|https://github.com/hiddify/|g' hiddify-sing-box/.gitmodules
-              cd hiddify-sing-box
-              git submodule sync
-              git submodule update --init --recursive
-              cd ..
-            fi
+            git submodule sync --recursive
+            git submodule update --init --recursive || true
             cd ..
           fi
           echo "=== submodule status ==="
           git submodule status
           echo "=== hiddify-core submodule status ==="
-          cd hiddify-core && git submodule status 2>/dev/null
-          cd hiddify-sing-box && git log --oneline -1 2>/dev/null
-          cd ../../.. && echo "=== done ==="
+          cd hiddify-core && git submodule status 2>/dev/null || true
+          echo "=== done ==="
 
       - name: Set up JDK
         uses: actions/setup-java@v5
