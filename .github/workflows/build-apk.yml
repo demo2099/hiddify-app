@@ -75,17 +75,31 @@ jobs:
           yes | sdkmanager --licenses
           sdkmanager "ndk;28.2.13676358" "platforms;android-36" "build-tools;36.0.0" "platform-tools"
 
-      - name: Install gomobile
+      - name: Install gomobile v0.1.11 (matching official)
         run: |
-          go install github.com/sagernet/gomobile/cmd/gomobile@v0.1.12
-          go install github.com/sagernet/gomobile/cmd/gobind@v0.1.12
+          go install github.com/sagernet/gomobile/cmd/gomobile@v0.1.11
+          go install github.com/sagernet/gomobile/cmd/gobind@v0.1.11
 
-      - name: Build hiddify-core AAR (debug symbols for crash analysis)
+      - name: Force gomobile v0.1.11 in all go.mod files
+        working-directory: hiddify-core
+        run: |
+          sed -i 's|github.com/sagernet/gomobile v0.1.12|github.com/sagernet/gomobile v0.1.11|g' go.mod
+          sed -i 's|github.com/sagernet/gomobile v0.1.12|github.com/sagernet/gomobile v0.1.11|g' hiddify-sing-box/go.mod
+          rm -f go.sum hiddify-sing-box/go.sum
+          export PATH=$PATH:$(go env GOPATH)/bin
+          go mod download github.com/sagernet/gomobile@v0.1.11
+          go mod tidy
+          cd hiddify-sing-box && go mod download github.com/sagernet/gomobile@v0.1.11 && go mod tidy 2>/dev/null; cd ..
+          echo "=== gomobile versions ==="
+          grep gomobile go.mod
+          grep gomobile hiddify-sing-box/go.mod
+
+      - name: Build hiddify-core AAR
         working-directory: hiddify-core
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
           export ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/28.2.13676358
-          CGO_LDFLAGS="-O1 -g -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -trimpath -ldflags="-checklinkname=0 -buildid=" -target=android -gcflags "all=-N -l" -o bin/hiddify-core.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile
+          CGO_LDFLAGS="-O2 -g -s -w -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -trimpath -ldflags="-w -s -checklinkname=0 -buildid=" -target=android -gcflags "all=-N -l" -o bin/hiddify-core.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile
 
       - name: Copy AAR to app libs
         run: |
