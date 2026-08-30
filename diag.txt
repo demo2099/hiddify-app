@@ -1,32 +1,32 @@
 === go mod tidy log ===
-go: downloading github.com/go-playground/universal-translator v0.17.0
-go: downloading github.com/leodido/go-urn v1.2.0
 go: downloading github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
 go: downloading github.com/modern-go/reflect2 v1.0.2
-go: downloading github.com/bits-and-blooms/bitset v1.10.0
-go: downloading github.com/twmb/murmur3 v1.1.6
-go: downloading github.com/pion/transport v0.14.1
-go: downloading github.com/pion/mdns v0.0.12
-go: downloading github.com/pion/randutil v0.1.0
-go: downloading github.com/pion/turn/v2 v2.1.3
-go: downloading github.com/pion/transport/v3 v3.0.2
-go: downloading github.com/pion/rtcp v1.2.12
-go: downloading github.com/pion/srtp/v2 v2.0.18
-go: downloading github.com/bifurcation/mint v0.0.0-20180306135233-198357931e61
-go: downloading github.com/cheekybits/genny v0.0.0-20170328200008-9127e812e1e9
-go: downloading github.com/tailscale/goupnp v1.0.1-0.20210804011211-c64d0f06ea05
-go: downloading github.com/refraction-networking/ed25519 v0.1.2
-go: downloading github.com/libp2p/go-reuseport v0.4.0
-go: downloading github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96
-go: downloading github.com/sergeyfrolov/bsbuffer v0.0.0-20180903213811-94e85abb8507
-go: downloading github.com/florianl/go-nfqueue v1.1.1-0.20200829120558-a2f196e98ab0
-go: downloading github.com/google/gopacket v1.1.19
+go: downloading github.com/go-playground/universal-translator v0.17.0
+go: downloading github.com/leodido/go-urn v1.2.0
 go: downloading github.com/github/fakeca v0.1.0
 go: downloading software.sslmate.com/src/go-pkcs12 v0.4.0
 go: downloading golang.org/x/oauth2 v0.32.0
 go: downloading github.com/tailscale/web-client-prebuilt v0.0.0-20250124233751-d4cd19a26976
 go: downloading github.com/tailscale/hujson v0.0.0-20221223112325-20486734a56a
 go: downloading github.com/safchain/ethtool v0.3.0
+go: downloading github.com/bits-and-blooms/bitset v1.10.0
+go: downloading github.com/twmb/murmur3 v1.1.6
+go: downloading github.com/pion/transport v0.14.1
+go: downloading github.com/pion/rtcp v1.2.12
+go: downloading github.com/pion/mdns v0.0.12
+go: downloading github.com/pion/randutil v0.1.0
+go: downloading github.com/pion/turn/v2 v2.1.3
+go: downloading github.com/pion/transport/v3 v3.0.2
+go: downloading github.com/pion/srtp/v2 v2.0.18
+go: downloading github.com/tailscale/goupnp v1.0.1-0.20210804011211-c64d0f06ea05
+go: downloading github.com/bifurcation/mint v0.0.0-20180306135233-198357931e61
+go: downloading github.com/cheekybits/genny v0.0.0-20170328200008-9127e812e1e9
+go: downloading github.com/refraction-networking/ed25519 v0.1.2
+go: downloading github.com/libp2p/go-reuseport v0.4.0
+go: downloading github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96
+go: downloading github.com/sergeyfrolov/bsbuffer v0.0.0-20180903213811-94e85abb8507
+go: downloading github.com/florianl/go-nfqueue v1.1.1-0.20200829120558-a2f196e98ab0
+go: downloading github.com/google/gopacket v1.1.19
 go: downloading github.com/lufia/plan9stats v0.0.0-20211012122336-39d0f177ccd0
 go: downloading github.com/power-devops/perfstat v0.0.0-20210106213030-5aafc221ea8c
 go: downloading github.com/shoenig/go-m1cpu v0.1.6
@@ -34,27 +34,27 @@ go: downloading github.com/tklauser/go-sysconf v0.3.12
 go: downloading github.com/yusufpapurcu/wmi v1.2.4
 go: downloading gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
 go: downloading github.com/go-playground/locales v0.13.0
-go: downloading github.com/frankban/quicktest v1.14.6
+go: downloading github.com/tc-hib/winres v0.2.1
 go: downloading github.com/coreos/go-iptables v0.7.1-0.20240112124308-65c67c9f46e6
 go: downloading github.com/google/nftables v0.2.1-0.20240414091927-5e242ec57806
+go: downloading github.com/alexbrainman/sspi v0.0.0-20231016080023-1a75b4708caa
+go: downloading github.com/riobard/go-bloom v0.0.0-20200614022211-cdc8013cb5b3
+go: downloading github.com/frankban/quicktest v1.14.6
 go: downloading github.com/josharian/native v1.1.1-0.20230202152459-5c7d0dd6ab86
 go: downloading github.com/mroth/weightedrand v1.0.0
 go: downloading github.com/pelletier/go-toml v1.9.5
 go: downloading github.com/refraction-networking/obfs4 v0.1.2
 go: downloading gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib v1.5.0
 go: downloading filippo.io/keygen v0.0.0-20230306160926-5201437acf8e
-go: downloading github.com/riobard/go-bloom v0.0.0-20200614022211-cdc8013cb5b3
-go: downloading github.com/tc-hib/winres v0.2.1
-go: downloading github.com/alexbrainman/sspi v0.0.0-20231016080023-1a75b4708caa
-go: downloading github.com/zeebo/pcg v1.0.1
 go: downloading github.com/tklauser/numcpus v0.6.1
+go: downloading github.com/zeebo/pcg v1.0.1
+go: downloading github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
+go: downloading golang.org/x/image v0.27.0
 go: downloading github.com/BurntSushi/toml v1.4.1-0.20240526193622-a339e1f7089c
 go: downloading github.com/go-redis/redis/v8 v8.11.5
 go: downloading github.com/pebbe/zmq4 v1.2.10
 go: downloading github.com/dchest/siphash v1.2.3
 go: downloading filippo.io/bigmod v0.0.1
-go: downloading github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
-go: downloading golang.org/x/image v0.27.0
 go: downloading github.com/cespare/xxhash/v2 v2.3.0
 go: downloading github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f
 go: downloading github.com/oschwald/geoip2-golang v1.9.0
@@ -197,8 +197,8 @@ Note: Recompile with -Xlint:deprecation for details.
 Expected to find fonts for (packages/cupertino_icons/CupertinoIcons, MaterialIcons, packages/fluentui_system_icons/FluentSystemIcons-Regular, ..., packages/simple_icons/SimpleIcons, packages/iconsax_flutter/FlutterIconsax), but found (MaterialIcons, packages/iconsax_flutter/FlutterIconsax, packages/simple_icons/SimpleIcons, ..., packages/fluentui_system_icons/FluentSystemIcons-Regular, packages/fluentui_system_icons/FluentSystemIcons-Filled). This usually means you are referring to font families in an IconData class but not including them in the assets section of your pubspec.yaml, are missing the package that would include them, or are missing "uses-material-design: true".
 Font asset "FlutterIconsax.ttf" was tree-shaken, reducing it from 670228 to 1924 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Font asset "SimpleIcons.ttf" was tree-shaken, reducing it from 1318664 to 3488 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
-Font asset "FluentSystemIcons-Filled.ttf" was tree-shaken, reducing it from 2148440 to 868 bytes (100.0% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Font asset "FluentSystemIcons-Regular.ttf" was tree-shaken, reducing it from 2435788 to 5176 bytes (99.8% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "FluentSystemIcons-Filled.ttf" was tree-shaken, reducing it from 2148440 to 868 bytes (100.0% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Font asset "fa-solid-900.ttf" was tree-shaken, reducing it from 423676 to 1196 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 17388 bytes (98.9% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Checking the license for package CMake 3.22.1 in /usr/local/lib/android/sdk/licenses
@@ -209,5 +209,5 @@ Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
 "Install CMake 3.22.1 v.3.22.1" complete.
 "Install CMake 3.22.1 v.3.22.1" finished.
 Caught exception: Already watching path: /home/runner/work/hiddify-app/hiddify-app/android
-Running Gradle task 'assembleRelease'...                          527.2s
-✓ Built build/app/outputs/flutter-apk/app-release.apk (342.6MB)
+Running Gradle task 'assembleRelease'...                          511.2s
+✓ Built build/app/outputs/flutter-apk/app-release.apk (342.7MB)
