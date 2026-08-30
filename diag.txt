@@ -1,101 +1,101 @@
-github.com/sagernet/sing-box/common/cloudflare
-github.com/xmdhs/clash2singbox/model/clash
-github.com/sagernet/wireguard-go/ipc
+google.golang.org/protobuf/types/known/emptypb
+golang.org/x/crypto/ed25519
+github.com/sagernet/sing-box/experimental/libbox/internal/procfs
+github.com/cretz/bine/torutil/ed25519
+github.com/sagernet/sing-dns
+github.com/cretz/bine/torutil
+gopkg.in/yaml.v3
+github.com/sagernet/gomobile/bind/seq
+github.com/sagernet/sing-box/transport/sip003
+github.com/sagernet/sing-box/transport/trojan
+github.com/cretz/bine/control
+github.com/sagernet/wireguard-go/device
+github.com/cretz/bine/process
+github.com/sagernet/sing-box/protocol/shadowsocks
+github.com/sagernet/sing-box/protocol/trojan
+github.com/cretz/bine/tor
+github.com/xmdhs/clash2singbox/model/singbox
+github.com/hiddify/hiddify-core/v2/ezytel
+github.com/sagernet/gomobile/bind/java
+github.com/sagernet/sing-box/protocol/tor
+github.com/hiddify/hiddify-core/v2/hcommon
+github.com/sagernet/sing-box/include
 github.com/hiddify/hiddify-core/v2/hello
+github.com/xmdhs/clash2singbox/model/clash
 github.com/xmdhs/clash2singbox/convert
+github.com/sagernet/sing-box/protocol/tun
+github.com/sagernet/sing-box/protocol/tunnel
+github.com/hiddify/hiddify-core/v2/service_manager
+google.golang.org/grpc/encoding/gzip
+github.com/sagernet/sing-vmess/packetaddr
+github.com/sagernet/sing-box/protocol/ssh
+github.com/sagernet/sing-vmess/vless
+github.com/sagernet/sing-box/transport/wireguard
+github.com/sagernet/sing-box/protocol/vmess
+github.com/tidwall/pretty
+github.com/sagernet/sing-box/daemon
+github.com/tidwall/gjson
+golang.zx2c4.com/wireguard/wgctrl/wgtypes
+github.com/sagernet/sing-box/protocol/vless
+github.com/sagernet/wireguard-go/conn
+github.com/sagernet/wireguard-go/rwcancel
 github.com/sagernet/wireguard-go/ratelimiter
+github.com/sagernet/sing-box/experimental/libbox
 github.com/sagernet/wireguard-go/tai64n
 github.com/sagernet/sing-box/service/ssmapi
+github.com/sagernet/sing-box/common/cloudflare
+github.com/sagernet/wireguard-go/ipc
 github.com/sagernet/wireguard-go/tun
-github.com/hiddify/hiddify-core/v2/service_manager
+github.com/sagernet/gomobile/internal/mobileinit
 github.com/sagernet/sing-box/transport/v2rayquic
 google.golang.org/protobuf/types/known/emptypb
 github.com/sagernet/sing-box/experimental/libbox/internal/procfs
-github.com/sagernet/sing-dns
-google.golang.org/grpc/encoding/gzip
 github.com/sagernet/sing-box/protocol/wireguard
-github.com/sagernet/wireguard-go/device
+github.com/sagernet/sing-dns
 gopkg.in/yaml.v3
+github.com/sagernet/gomobile/bind/seq
+github.com/sagernet/wireguard-go/device
 github.com/xmdhs/clash2singbox/model/singbox
 github.com/hiddify/hiddify-core/v2/ezytel
-github.com/hiddify/hiddify-core/v2/hcommon
-github.com/hiddify/hiddify-core/v2/hello
-github.com/sagernet/gomobile/internal/mobileinit
-github.com/hiddify/hiddify-core/v2/service_manager
-github.com/sagernet/gomobile/bind/seq
-github.com/sagernet/sing-box/experimental/libbox
-github.com/sagernet/sing-box/transport/wireguard
-github.com/sagernet/sing-box/include
-google.golang.org/grpc/encoding/gzip
-github.com/sagernet/sing-box/experimental/libbox
+github.com/sagernet/gomobile/bind/java
 github.com/xmdhs/clash2singbox/model/clash
 github.com/xmdhs/clash2singbox/convert
-github.com/sagernet/gomobile/bind/java
+github.com/sagernet/sing-box/transport/wireguard
+github.com/hiddify/hiddify-core/v2/hcommon
+github.com/sagernet/sing-box/include
+github.com/hiddify/hiddify-core/v2/hello
+github.com/hiddify/hiddify-core/v2/service_manager
+google.golang.org/grpc/encoding/gzip
+github.com/sagernet/sing-box/experimental/libbox
+github.com/hiddify/hiddify-core/v2/hutils
+github.com/hiddify/ray2sing/ray2sing
+# github.com/hiddify/ray2sing/ray2sing
+../../../ray2sing/ray2sing/warp.go:26:15: undefined: T.WARPEndpointOptions
+../../../ray2sing/ray2sing/warp.go:35:12: undefined: T.AwgOptions
 github.com/sagernet/sing-box/daemon
 github.com/sagernet/gomobile/internal/mobileinit
 github.com/sagernet/sing-box/protocol/wireguard
 github.com/sagernet/gomobile/bind/seq
 github.com/sagernet/gomobile/bind/java
-github.com/hiddify/hiddify-core/v2/hutils
-github.com/hiddify/ray2sing/ray2sing
 github.com/sagernet/sing-box/include
 github.com/hiddify/hiddify-core/v2/hutils
 github.com/hiddify/ray2sing/ray2sing
 # github.com/hiddify/ray2sing/ray2sing
-../../../ray2sing/ray2sing/awg.go:180:4: unknown field Awg in struct literal of type option.AwgEndpointOptions
-../../../ray2sing/ray2sing/awg.go:180:11: undefined: T.AwgOptions
-../../../ray2sing/ray2sing/awg.go:294:3: unknown field Awg in struct literal of type option.AwgEndpointOptions
-../../../ray2sing/ray2sing/awg.go:294:10: undefined: T.AwgOptions
-../../../ray2sing/ray2sing/awg.go:322:16: opts.Awg undefined (type option.AwgEndpointOptions has no field or method Awg)
-../../../ray2sing/ray2sing/dnstt.go:25:3: unknown field PreTestDomain in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:26:3: unknown field PreTestRecordType in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:27:3: unknown field RecordType in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:28:3: unknown field UTLSClientHelloID in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:30:3: unknown field DnsttCompat in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:30:3: too many errors
-# github.com/hiddify/ray2sing/ray2sing
-../../../ray2sing/ray2sing/awg.go:180:4: unknown field Awg in struct literal of type option.AwgEndpointOptions
-../../../ray2sing/ray2sing/awg.go:180:11: undefined: T.AwgOptions
-../../../ray2sing/ray2sing/awg.go:294:3: unknown field Awg in struct literal of type option.AwgEndpointOptions
-../../../ray2sing/ray2sing/awg.go:294:10: undefined: T.AwgOptions
-../../../ray2sing/ray2sing/awg.go:322:16: opts.Awg undefined (type option.AwgEndpointOptions has no field or method Awg)
-../../../ray2sing/ray2sing/dnstt.go:25:3: unknown field PreTestDomain in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:26:3: unknown field PreTestRecordType in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:27:3: unknown field RecordType in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:28:3: unknown field UTLSClientHelloID in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:30:3: unknown field DnsttCompat in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:30:3: too many errors
+../../../ray2sing/ray2sing/warp.go:26:15: undefined: T.WARPEndpointOptions
+../../../ray2sing/ray2sing/warp.go:35:12: undefined: T.AwgOptions
 github.com/sagernet/sing-box/daemon
 github.com/sagernet/sing-box/experimental/libbox
+github.com/hiddify/hiddify-core/v2/hutils
+github.com/hiddify/ray2sing/ray2sing
 github.com/sagernet/sing-box/experimental/libbox
+# github.com/hiddify/ray2sing/ray2sing
+../../../ray2sing/ray2sing/warp.go:26:15: undefined: T.WARPEndpointOptions
+../../../ray2sing/ray2sing/warp.go:35:12: undefined: T.AwgOptions
 github.com/hiddify/hiddify-core/v2/hutils
 github.com/hiddify/ray2sing/ray2sing
 # github.com/hiddify/ray2sing/ray2sing
-../../../ray2sing/ray2sing/awg.go:180:4: unknown field Awg in struct literal of type option.AwgEndpointOptions
-../../../ray2sing/ray2sing/awg.go:180:11: undefined: T.AwgOptions
-../../../ray2sing/ray2sing/awg.go:294:3: unknown field Awg in struct literal of type option.AwgEndpointOptions
-../../../ray2sing/ray2sing/awg.go:294:10: undefined: T.AwgOptions
-../../../ray2sing/ray2sing/awg.go:322:16: opts.Awg undefined (type option.AwgEndpointOptions has no field or method Awg)
-../../../ray2sing/ray2sing/dnstt.go:25:3: unknown field PreTestDomain in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:26:3: unknown field PreTestRecordType in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:27:3: unknown field RecordType in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:28:3: unknown field UTLSClientHelloID in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:30:3: unknown field DnsttCompat in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:30:3: too many errors
-github.com/hiddify/hiddify-core/v2/hutils
-github.com/hiddify/ray2sing/ray2sing
-# github.com/hiddify/ray2sing/ray2sing
-../../../ray2sing/ray2sing/awg.go:180:4: unknown field Awg in struct literal of type option.AwgEndpointOptions
-../../../ray2sing/ray2sing/awg.go:180:11: undefined: T.AwgOptions
-../../../ray2sing/ray2sing/awg.go:294:3: unknown field Awg in struct literal of type option.AwgEndpointOptions
-../../../ray2sing/ray2sing/awg.go:294:10: undefined: T.AwgOptions
-../../../ray2sing/ray2sing/awg.go:322:16: opts.Awg undefined (type option.AwgEndpointOptions has no field or method Awg)
-../../../ray2sing/ray2sing/dnstt.go:25:3: unknown field PreTestDomain in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:26:3: unknown field PreTestRecordType in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:27:3: unknown field RecordType in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:28:3: unknown field UTLSClientHelloID in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:30:3: unknown field DnsttCompat in struct literal of type option.DnsttOptions
-../../../ray2sing/ray2sing/dnstt.go:30:3: too many errors
-gomobile: go build -tags with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -v -gcflags all=-N -l -ldflags -w -s -checklinkname=0 -buildid= -trimpath -buildmode=c-shared -o=/tmp/gomobile-work-1066374335/android/src/main/jniLibs/x86/libhiddify-core.so . failed: exit status 1
+../../../ray2sing/ray2sing/warp.go:26:15: undefined: T.WARPEndpointOptions
+../../../ray2sing/ray2sing/warp.go:35:12: undefined: T.AwgOptions
+gomobile: go build -tags with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -v -gcflags all=-N -l -ldflags -w -s -checklinkname=0 -buildid= -trimpath -buildmode=c-shared -o=/tmp/gomobile-work-3739976050/android/src/main/jniLibs/armeabi-v7a/libhiddify-core.so . failed: exit status 1
 
 === flutter log ===
