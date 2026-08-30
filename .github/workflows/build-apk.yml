@@ -80,19 +80,16 @@ jobs:
           go install github.com/sagernet/gomobile/cmd/gomobile@v0.1.11
           go install github.com/sagernet/gomobile/cmd/gobind@v0.1.11
 
-      - name: Force gomobile v0.1.11 in all go.mod files
+      - name: Force gomobile v0.1.11 via go mod replace
         working-directory: hiddify-core
         run: |
-          sed -i 's|github.com/sagernet/gomobile v0.1.12|github.com/sagernet/gomobile v0.1.11|g' go.mod
-          sed -i 's|github.com/sagernet/gomobile v0.1.12|github.com/sagernet/gomobile v0.1.11|g' hiddify-sing-box/go.mod
+          go mod edit -replace github.com/sagernet/gomobile@v0.1.12=github.com/sagernet/gomobile@v0.1.11
+          cd hiddify-sing-box && go mod edit -replace github.com/sagernet/gomobile@v0.1.12=github.com/sagernet/gomobile@v0.1.11 && cd ..
           rm -f go.sum hiddify-sing-box/go.sum
           export PATH=$PATH:$(go env GOPATH)/bin
-          go mod download github.com/sagernet/gomobile@v0.1.11
-          go mod tidy
-          cd hiddify-sing-box && go mod download github.com/sagernet/gomobile@v0.1.11 && go mod tidy 2>/dev/null; cd ..
-          echo "=== gomobile versions ==="
-          grep gomobile go.mod
-          grep gomobile hiddify-sing-box/go.mod
+          echo "=== replace directives ==="
+          grep -A1 "replace.*gomobile" go.mod
+          grep -A1 "replace.*gomobile" hiddify-sing-box/go.mod
 
       - name: Build hiddify-core AAR
         working-directory: hiddify-core
