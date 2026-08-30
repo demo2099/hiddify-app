@@ -102,13 +102,45 @@ jobs:
           echo "=== gomobile in go.mod ==="
           grep gomobile go.mod
           go version
-          go mod download
+          echo "=== go.mod directives BEFORE tidy ==="
+          grep -E '^(go|toolchain)' go.mod
+          cp go.mod /tmp/go.mod.orig
+          cp go.sum /tmp/go.sum.orig
+          set +e
+          go mod tidy > /tmp/gomod_tidy.log 2>&1
+          TIDY_RC=$?
+          set -e
+          echo "=== go mod tidy rc=$TIDY_RC (last 60 lines) ==="
+          tail -60 /tmp/gomod_tidy.log
+          echo "=== go version AFTER tidy (must still be go1.25.6) ==="
+          go version
+          echo "=== go.mod directives AFTER tidy ==="
+          grep -E '^(go|toolchain)' go.mod
+          echo "=== go.mod diff vs committed ==="
+          diff /tmp/go.mod.orig go.mod || true
+          echo "=== go.sum diff vs committed (first 40) ==="
+          diff /tmp/go.sum.orig go.sum | head -40 || true
+          echo "=== resolved versions of drifted modules ==="
+          go list -m github.com/andybalholm/brotli github.com/klauspost/compress github.com/klauspost/reedsolomon github.com/xtaci/smux github.com/metacubex/utls github.com/refraction-networking/utls github.com/net2share/vaydns github.com/xmdhs/clash2singbox || true
+          [ "$TIDY_RC" -eq 0 ] || { echo "::error::go mod tidy failed rc=$TIDY_RC"; exit 1; }
+          echo "=== assert go directive did not drift ==="
+          grep -q '^go 1.25.6$' go.mod || { echo "::error::go directive drifted after tidy:"; grep -E '^(go|toolchain)' go.mod; exit 1; }
           CGO_LDFLAGS="-O2 -g -s -w -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -trimpath -ldflags="-w -s -checklinkname=0 -buildid=" -target=android -gcflags "all=-N -l" -o bin/hiddify-core.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile 2>&1 | tee /tmp/gomobile_build.log
           echo "=== toolchain assertion ==="
           unzip -p bin/hiddify-core.aar jni/arm64-v8a/libhiddify-core.so > /tmp/core_arm64.so
           GOV=$(grep -aoE 'go1\.[0-9]+(\.[0-9]+)?' /tmp/core_arm64.so | sort -u | tr '\n' ' ')
           echo "detected go toolchain: $GOV"
           echo "$GOV" | grep -q 'go1\.25\.6' || { echo "::error::wrong go toolchain: $GOV"; exit 1; }
+
+      - name: Upload resolved go.mod and go.sum
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resolved-go-modules
+          path: |
+            hiddify-core/go.mod
+            hiddify-core/go.sum
+          retention-days: 7
 
       - name: Copy AAR to app libs
         run: |
@@ -157,7 +189,10 @@ jobs:
       - name: Diagnose
         if: always()
         run: |
-          cat /tmp/gomobile_build.log 2>/dev/null | tail -100 > diag.txt || echo "no gomobile log" > diag.txt
+          echo "=== go mod tidy log ===" > diag.txt
+          tail -60 /tmp/gomod_tidy.log >> diag.txt 2>/dev/null || echo "(none)" >> diag.txt
+          echo "=== gomobile log ===" >> diag.txt
+          tail -100 /tmp/gomobile_build.log >> diag.txt 2>/dev/null || echo "(none)" >> diag.txt
           echo "=== flutter log ===" >> diag.txt
           cat /tmp/flutter_build.log 2>/dev/null | tail -50 >> diag.txt || echo "no flutter log" >> diag.txt
           git config user.email "d@l"; git config user.name "d"
