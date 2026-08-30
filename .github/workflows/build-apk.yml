@@ -122,9 +122,10 @@ jobs:
           echo "=== go.mod directives AFTER tidy ==="
           grep -E '^(go|toolchain)' go.mod
           echo "=== go.mod diff vs committed ==="
-          diff /tmp/go.mod.orig go.mod || true
-          echo "=== go.sum diff vs committed (first 40) ==="
-          diff /tmp/go.sum.orig go.sum | head -40 || true
+          diff /tmp/go.mod.orig go.mod && echo "(unchanged: committed go.mod is complete)" || echo "::warning::go.mod changed during tidy - lockfiles not fully committed"
+          echo "=== go.sum diff vs committed ==="
+          diff /tmp/go.sum.orig go.sum > /tmp/gosum.diff && echo "(unchanged: committed go.sum is complete)" || echo "::warning::go.sum changed during tidy - lockfiles not fully committed"
+          head -40 /tmp/gosum.diff || true
           echo "=== resolved versions of drifted modules ==="
           go list -m github.com/andybalholm/brotli github.com/klauspost/compress github.com/klauspost/reedsolomon github.com/xtaci/smux github.com/metacubex/utls github.com/refraction-networking/utls github.com/net2share/vaydns github.com/xmdhs/clash2singbox github.com/showwin/speedtest-go || true
           echo "=== assert speedtest-go was not upgraded past v1.8.0 ==="
@@ -138,6 +139,14 @@ jobs:
           GOV=$(grep -aoE 'go1\.[0-9]+(\.[0-9]+)?' /tmp/core_arm64.so | sort -u | tr '\n' ' ')
           echo "detected go toolchain: $GOV"
           echo "$GOV" | grep -q 'go1\.25\.6' || { echo "::error::wrong go toolchain: $GOV"; exit 1; }
+
+      - name: Publish resolved go.mod and go.sum to the branch
+        if: always()
+        run: |
+          mkdir -p resolved-go
+          cp hiddify-core/go.mod resolved-go/hiddify-core.go.mod
+          cp hiddify-core/go.sum resolved-go/hiddify-core.go.sum
+          wc -l resolved-go/hiddify-core.go.mod resolved-go/hiddify-core.go.sum
 
       - name: Upload resolved go.mod and go.sum
         if: always()
@@ -203,6 +212,6 @@ jobs:
           echo "=== flutter log ===" >> diag.txt
           cat /tmp/flutter_build.log 2>/dev/null | tail -50 >> diag.txt || echo "no flutter log" >> diag.txt
           git config user.email "d@l"; git config user.name "d"
-          git add diag.txt
+          git add diag.txt resolved-go/
           git commit -m "diag [skip ci]" || true
           git push origin ech-support || true
