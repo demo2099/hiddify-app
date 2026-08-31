@@ -165,12 +165,19 @@ jobs:
             flutter build apk --release
           } 2>&1 | tee /tmp/flutter_build.log
 
+      - name: Rename APK for release
+        run: |
+          cd build/app/outputs/flutter-apk
+          cp app-release.apk Hiddify.apk
+          echo "=== release artifacts ==="
+          ls -la Hiddify.apk app-release.apk
+
       - name: Upload APK
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: hiddify-app-ech
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/Hiddify.apk
           retention-days: 30
 
       - name: Publish APK to Releases
@@ -183,15 +190,18 @@ jobs:
           prerelease: true
           allowUpdates: true
           replacesArtifacts: true
-          artifacts: build/app/outputs/flutter-apk/app-release.apk
+          artifacts: build/app/outputs/flutter-apk/Hiddify.apk
           body: "Automated rolling build with ECH support (v2rayN format). Commit: ${{ github.sha }}"
 
       - name: Upload build log on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: flutter-build-log
-          path: /tmp/flutter_build.log
+          name: build-logs
+          path: |
+            /tmp/flutter_build.log
+            /tmp/gomobile_build.log
+            /tmp/gomod_tidy.log
           retention-days: 7
 
       - name: Diagnose
@@ -206,4 +216,3 @@ jobs:
           git config user.email "d@l"; git config user.name "d"
           git add diag.txt
           git commit -m "diag [skip ci]" || true
-          git push origin ech-support || true
