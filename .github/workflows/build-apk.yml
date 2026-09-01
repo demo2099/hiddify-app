@@ -216,3 +216,10 @@ jobs:
           git config user.email "d@l"; git config user.name "d"
           git add diag.txt
           git commit -m "diag [skip ci]" || true
+      - name: Push diag on failure
+        if: failure()
+        run: |
+          git config user.email "d@l"
+          git config user.name "d"
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/demo2099/hiddify-app.git ech-support || true
+
