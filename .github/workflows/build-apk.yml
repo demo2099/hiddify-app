@@ -133,12 +133,18 @@ jobs:
           [ "$TIDY_RC" -eq 0 ] || { echo "::error::go mod tidy failed rc=$TIDY_RC"; exit 1; }
           echo "=== assert go directive did not drift ==="
           grep -q '^go 1.25.6$' go.mod || { echo "::error::go directive drifted after tidy:"; grep -E '^(go|toolchain)' go.mod; exit 1; }
-          CGO_LDFLAGS="-O2 -g -s -w -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -trimpath -ldflags="-w -s -checklinkname=0 -buildid=" -target=android/arm64 -gcflags "all=-N -l" -o bin/hiddify-core.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile 2>&1 | tee /tmp/gomobile_build.log
-          echo "=== toolchain assertion ==="
-          unzip -p bin/hiddify-core.aar jni/arm64-v8a/libhiddify-core.so > /tmp/core_arm64.so
+          # Universal AAR (all ABIs) -> used by the universal APK
+          CGO_LDFLAGS="-O2 -g -s -w -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -trimpath -ldflags="-w -s -checklinkname=0 -buildid=" -target=android -gcflags "all=-N -l" -o bin/hiddify-core-universal.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile 2>&1 | tee /tmp/gomobile_build_universal.log
+          # arm64-only AAR -> used by the dedicated arm64 APK
+          CGO_LDFLAGS="-O2 -g -s -w -Wl,-z,max-page-size=16384" gomobile bind -v -androidapi=21 -javapkg=com.hiddify.core -libname=hiddify-core -tags=with_gvisor,with_quic,with_wireguard,with_utls,with_clash_api,with_grpc,with_awg,tfogo_checklinkname0,with_naive_outbound,with_conntrack -trimpath -ldflags="-w -s -checklinkname=0 -buildid=" -target=android/arm64 -gcflags "all=-N -l" -o bin/hiddify-core-arm64.aar github.com/sagernet/sing-box/experimental/libbox ./platform/mobile 2>&1 | tee /tmp/gomobile_build.log
+          echo "=== toolchain assertion (arm64 AAR) ==="
+          unzip -p bin/hiddify-core-arm64.aar jni/arm64-v8a/libhiddify-core.so > /tmp/core_arm64.so
           GOV=$(grep -aoE 'go1\.[0-9]+(\.[0-9]+)?' /tmp/core_arm64.so | sort -u | tr '\n' ' ')
           echo "detected go toolchain: $GOV"
           echo "$GOV" | grep -q 'go1\.25\.6' || { echo "::error::wrong go toolchain: $GOV"; exit 1; }
+          echo "=== AAR ABI contents ==="
+          echo "universal AAR:"; unzip -l bin/hiddify-core-universal.aar | grep -E 'jni/[^/]+/libhiddify-core.so' || true
+          echo "arm64 AAR:"; unzip -l bin/hiddify-core-arm64.aar | grep -E 'jni/[^/]+/libhiddify-core.so' || true
 
       - name: Upload resolved go.mod and go.sum
         if: always()
@@ -150,34 +156,44 @@ jobs:
             hiddify-core/go.sum
           retention-days: 7
 
-      - name: Copy AAR to app libs
+      - name: Copy universal AAR to app libs (default for the first build)
         run: |
           mkdir -p android/app/libs
-          cp hiddify-core/bin/hiddify-core.aar android/app/libs/
+          cp hiddify-core/bin/hiddify-core-universal.aar android/app/libs/hiddify-core.aar
 
-      - name: Generate code and build APK
+      - name: Generate code and build APKs (universal + arm64)
         run: |
           set -eo pipefail
           {
             flutter pub get
             dart run build_runner build --delete-conflicting-outputs
             dart run slang
+            # --- Universal APK (all ABIs) ---
+            flutter build apk --release
+            mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/Hiddify.apk
+            # --- Dedicated arm64 APK (arm64-only AAR) ---
+            cp hiddify-core/bin/hiddify-core-arm64.aar android/app/libs/hiddify-core.aar
+            rm -rf android/app/build
             flutter build apk --release --target-platform android-arm64
+            mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/Hiddify-arm64.apk
           } 2>&1 | tee /tmp/flutter_build.log
+          echo "=== built APKs ==="
+          ls -la build/app/outputs/flutter-apk/Hiddify.apk build/app/outputs/flutter-apk/Hiddify-arm64.apk
 
-      - name: Rename APK for release
+      - name: Verify release artifacts
         run: |
           cd build/app/outputs/flutter-apk
-          cp app-release.apk Hiddify.apk
           echo "=== release artifacts ==="
-          ls -la Hiddify.apk app-release.apk
+          ls -la Hiddify.apk Hiddify-arm64.apk
 
       - name: Upload APK
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: hiddify-app-ech
-          path: build/app/outputs/flutter-apk/Hiddify.apk
+          path: |
+            build/app/outputs/flutter-apk/Hiddify.apk
+            build/app/outputs/flutter-apk/Hiddify-arm64.apk
           retention-days: 30
 
       - name: Publish APK to Releases
@@ -190,7 +206,9 @@ jobs:
           prerelease: true
           allowUpdates: true
           replacesArtifacts: true
-          artifacts: build/app/outputs/flutter-apk/Hiddify.apk
+          artifacts: |
+            build/app/outputs/flutter-apk/Hiddify.apk
+            build/app/outputs/flutter-apk/Hiddify-arm64.apk
           body: "Automated rolling build with ECH support (v2rayN format). Commit: ${{ github.sha }}"
 
       - name: Upload build log on failure
@@ -201,6 +219,7 @@ jobs:
           path: |
             /tmp/flutter_build.log
             /tmp/gomobile_build.log
+            /tmp/gomobile_build_universal.log
             /tmp/gomod_tidy.log
           retention-days: 7
 
