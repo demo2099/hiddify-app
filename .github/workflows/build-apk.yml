@@ -204,22 +204,24 @@ jobs:
             /tmp/gomod_tidy.log
           retention-days: 7
 
-      - name: Diagnose
-        if: always()
-        run: |
-          echo "=== go mod tidy log ===" > diag.txt
-          tail -60 /tmp/gomod_tidy.log >> diag.txt 2>/dev/null || echo "(none)" >> diag.txt
-          echo "=== gomobile log ===" >> diag.txt
-          tail -100 /tmp/gomobile_build.log >> diag.txt 2>/dev/null || echo "(none)" >> diag.txt
-          echo "=== flutter log ===" >> diag.txt
-          cat /tmp/flutter_build.log 2>/dev/null | tail -50 >> diag.txt || echo "no flutter log" >> diag.txt
-          git config user.email "d@l"; git config user.name "d"
-          git add diag.txt
-          git commit -m "diag [skip ci]" || true
-      - name: Push diag on failure
+      - name: Surface build error publicly
         if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.email "d@l"
-          git config user.name "d"
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/demo2099/hiddify-app.git ech-support || true
+          {
+            echo "Automated CI build failure for commit ${{ github.sha }} (run ${{ github.run_id }})."
+            echo
+            echo "## gomobile build log (tail)"
+            echo '```'
+            tail -150 /tmp/gomobile_build.log 2>/dev/null || echo "(no gomobile log)"
+            echo '```'
+            echo
+            echo "## go mod tidy log (tail)"
+            echo '```'
+            tail -60 /tmp/gomod_tidy.log 2>/dev/null || echo "(no tidy log)"
+            echo '```'
+          } > /tmp/err.md
+          gh issue create --repo demo2099/hiddify-app --title "CI BUILD FAILURE ${{ github.run_id }}" --body-file /tmp/err.md \
+            || gh release edit ech-latest --notes-file /tmp/err.md || true
 
