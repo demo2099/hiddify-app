@@ -204,3 +204,20 @@ jobs:
             /tmp/gomod_tidy.log
           retention-days: 7
 
+      - name: Surface build error to ech-latest release notes
+        if: failure()
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "BUILD FAILURE run ${{ github.run_id }} commit ${{ github.sha }}"
+            echo "===== gomobile build log (tail 200) ====="
+            tail -200 /tmp/gomobile_build.log 2>/dev/null || echo "(no gomobile log)"
+            echo "===== go mod tidy log (tail 80) ====="
+            tail -80 /tmp/gomod_tidy.log 2>/dev/null || echo "(no tidy log)"
+          } > /tmp/err.txt
+          jq -Rs --arg run "${{ github.run_id }}" '"BUILD FAILURE run \($run\):\n```\n" + . + "\n```"' /tmp/err.txt > /tmp/body.json
+          RELID=$(curl -s -H "Authorization: Bearer $TOKEN" "https://api.github.com/repos/demo2099/hiddify-app/releases/tags/ech-latest" | jq -r '.id')
+          curl -s -X PATCH -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" -H "Content-Type: application/json" \
+            "https://api.github.com/repos/demo2099/hiddify-app/releases/$RELID" -d @/tmp/body.json
+
