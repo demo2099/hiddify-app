@@ -161,6 +161,28 @@ jobs:
           mkdir -p android/app/libs
           cp hiddify-core/bin/hiddify-core-universal.aar android/app/libs/hiddify-core.aar
 
+      - name: Set up release signing keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ] && [ -n "$KEY_ALIAS" ]; then
+            echo "SIGN_STATUS=release-keystore (fixed signature, can install over previous builds)" >> "$GITHUB_ENV"
+            echo "$KEYSTORE_BASE64" | base64 -d > android/app/hiddify-release.jks
+            cat > android/key.properties <<EOF
+          storePassword=$KEYSTORE_PASSWORD
+          keyPassword=$KEY_PASSWORD
+          keyAlias=$KEY_ALIAS
+          storeFile=hiddify-release.jks
+          EOF
+            echo "release keystore configured"
+          else
+            echo "SIGN_STATUS=DEBUG-fallback (NEW random signature each build, cannot install over previous)" >> "$GITHUB_ENV"
+            echo "::warning::No ANDROID_KEYSTORE_BASE64 secret -> debug-signed. Each build gets a NEW signature so it CANNOT update over a previous install."
+          fi
+
       - name: Generate code and build APKs (universal + arm64)
         run: |
           set -eo pipefail
@@ -209,7 +231,7 @@ jobs:
           artifacts: |
             build/app/outputs/flutter-apk/Hiddify.apk
             build/app/outputs/flutter-apk/Hiddify-arm64.apk
-          body: "Automated rolling build with ECH support (v2rayN format). Commit: ${{ github.sha }}"
+          body: "Automated rolling build with ECH support (v2rayN format). Commit: ${{ github.sha }} | signing: ${{ env.SIGN_STATUS }} | Hiddify.apk=universal(all ABIs) Hiddify-arm64.apk=arm64-only"
 
       - name: Upload build log on failure
         if: failure()
